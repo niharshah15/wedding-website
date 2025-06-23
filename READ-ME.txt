@@ -1,3 +1,4 @@
+<<<<<<< HEAD
   =>  Template Name    : Jack & Rose - Free Wedding Website Template
 
   =>  Template Link    : https://htmlcodex.com/free-wedding-website-template
@@ -8,4 +9,16 @@
 
   =>  Author Website   : https://htmlcodex.com
 
+=======
+  =>  Template Name    : Jack & Rose - Free Wedding Website Template
+
+  =>  Template Link    : https://htmlcodex.com/free-wedding-website-template
+
+  =>  Template License : https://htmlcodex.com/license (or read the LICENSE.txt file)
+
+  =>  Template Author  : HTML Codex
+
+  =>  Author Website   : https://htmlcodex.com
+
+>>>>>>> d8fa3c158c1a85b335b3b2122b0f377bd0791783
   =>  About HTML Codex : HTML Codex is one of the top creators and publishers of Free HTML templates, HTML landing pages, HTML email templates and HTML snippets in the world. Read more at ( https://htmlcodex.com/about-us )
