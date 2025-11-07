@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <title>Dhrumil Parikh & Hiral Gor - Wedding</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+    <meta content="Dhrumil & Hiral Wedding" name="keywords">
+    <meta content="December 2025" name="description">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -25,34 +25,121 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Lightbox CSS & JS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
+
     <!-- Navbar Start -->
-    <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-lg-5">
-        <a href="index.html" class="navbar-brand d-block d-lg-none">
-            <h1 class="font-secondary text-white mb-n2">Dhrumil <span class="text-primary">&</span> Hiral</h1>
-        </a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-            <div class="navbar-nav ml-auto py-0">
-                <a href="#home" class="nav-item nav-link active">Home</a>
-                <a href="#about" class="nav-item nav-link">About</a>
-                <a href="#gallery" class="nav-item nav-link">Gallery</a>
-            </div>
-            <a href="index.html" class="navbar-brand mx-5 d-none d-lg-block">
-                <h1 class="font-secondary text-white mb-n2">Dhrumil<span class="text-primary">&</span> Hiral</h1>
+    <nav class="navbar fixed-top shadow-sm navbar-expand-lg py-3 py-lg-0 px-lg-5 custom-navbar">
+        <div class="container-fluid">
+            <!-- Mobile Brand -->
+            <a href="index.html" class="navbar-brand d-block d-lg-none mx-auto">
+                <h1 class="font-secondary text-white mb-n2 text-center">
+                    Dhrumil <span class="text-highlight">&</span> Hiral
+                </h1>
             </a>
-            <div class="navbar-nav mr-auto py-0">
-                <a href="#event" class="nav-item nav-link">Event</a>
-                <a href="#family" class="nav-item nav-link">Family</a>
-                <a href="#contact" class="nav-item nav-link">Contact</a>
+
+            <!-- Toggler -->
+            <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Nav Links -->
+            <div class="collapse navbar-collapse justify-content-between align-items-center" id="navbarCollapse">
+                <!-- Left Side Links -->
+                <div class="navbar-nav mx-auto mx-lg-0 d-none d-lg-flex">
+                    <a href="#home" class="nav-item nav-link active">Home</a>
+                    <a href="#about" class="nav-item nav-link">About</a>
+                    <a href="#gallery" class="nav-item nav-link">Gallery</a>
+                </div>
+
+                <!-- Center Brand (Desktop) -->
+                <a href="index.html" class="navbar-brand d-none d-lg-block mx-lg-auto">
+                    <h1 class="font-secondary text-white mb-n2 text-center">
+                        Dhrumil <span class="text-highlight">&</span> Hiral
+                    </h1>
+                </a>
+
+                <!-- Right Side Links -->
+                <div class="navbar-nav mx-auto mx-lg-0 d-none d-lg-flex">
+                    <a href="#event" class="nav-item nav-link">Event</a>
+                    <a href="#messages" class="nav-item nav-link">Messages</a>
+                    <a href="#contact" class="nav-item nav-link">Contact</a>
+                </div>
+
+                <!-- Mobile Links -->
+                <div class="navbar-nav text-center d-lg-none mt-3">
+                    <a href="#home" class="nav-item nav-link active">Home</a>
+                    <a href="#about" class="nav-item nav-link">About</a>
+                    <a href="#gallery" class="nav-item nav-link">Gallery</a>
+                    <a href="#event" class="nav-item nav-link">Event</a>
+                    <a href="#messages" class="nav-item nav-link">Messages</a>
+                    <a href="#contact" class="nav-item nav-link">Contact</a>
+                </div>
             </div>
         </div>
     </nav>
     <!-- Navbar End -->
+
+    <style>
+        /* Custom Navbar Theme */
+        .custom-navbar {
+            background: linear-gradient(90deg, #b56576 0%, #e56b6f 50%, #b56576 100%);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .text-highlight {
+            color: #ffe6e6;
+            text-shadow: 0 0 8px rgba(255, 230, 230, 0.8);
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: #fff8dc !important;
+            text-shadow: 0 0 10px #fff;
+        }
+
+        /* Custom toggler (mobile icon) */
+        .custom-toggler {
+            border: 2px solid #fff;
+            border-radius: 5px;
+        }
+
+        .custom-toggler .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.9)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Glow effect when opened */
+        .custom-toggler:focus,
+        .custom-toggler:hover {
+            box-shadow: 0 0 10px rgba(255, 230, 230, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .custom-navbar {
+                background: linear-gradient(90deg, #b56576 0%, #e56b6f 100%);
+            }
+        }
+    </style>
+
+
 
 
     <!-- Carousel Start -->
@@ -60,76 +147,147 @@
         <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item position-relative active" style="height: 100vh; min-height: 400px;">
-                    <img class="position-absolute w-100 h-100" src="image1.jpg"
-                        style="object-fit: cover; object-position: center 25%;">
-                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <img class="position-absolute w-100 h-100" src="img/image1.jpg"
+                        style="object-fit: cover; object-position: center 25%; filter: brightness(70%);">
+                    <div
+                        class="carousel-caption d-flex flex-column align-items-center justify-content-center text-center">
                         <div class="p-3" style="max-width: 900px;">
-                            <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">Dhrumil & Hiral</h1>
-                            <div class="d-inline-block border-top border-bottom border-light py-3 px-4">
-                                <h3 class="text-uppercase font-weight-normal text-white m-0"
-                                    style="letter-spacing: 2px;">We're getting married</h3>
+                            <h1 class="display-1 font-secondary text-white fade-in"
+                                style="font-family: 'Great Vibes', cursive; font-size: 4.5rem;">Dhrumil & Hiral</h1>
+                            <div class="d-inline-block border-top border-bottom py-3 px-4"
+                                style="border-color: #ffcad4 !important;">
+                                <h3 class="text-uppercase font-weight-light text-white m-0 tracking-wide">We’re Getting
+                                    Married</h3>
                             </div>
-                            <!-- <button type="button" class="btn-play mx-auto" data-toggle="modal"
-                                data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">
-                                <span></span>
-                            </button> -->
+                            <div class="mt-4">
+                                <!-- <a href="#details" class="btn btn-outline-light rounded-pill px-4 py-2"
+                                    style="border: 2px solid #ffcad4; color: #fff; transition: 0.3s;">
+                                    <i class="fas fa-heart mr-2"></i> Save the Date
+                                </a> -->
+                            </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="carousel-item position-relative" style="height: 100vh; min-height: 400px;">
-                    <img class="position-absolute w-100 h-100" src="image2.jpg"
-                        style="object-fit: cover; object-position: center 17%;">
-                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <img class="position-absolute w-100 h-100" src="img/image2.jpg"
+                        style="object-fit: cover; object-position: center 17%; filter: brightness(70%);">
+                    <div
+                        class="carousel-caption d-flex flex-column align-items-center justify-content-center text-center">
                         <div class="p-3" style="max-width: 900px;">
-                            <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">Dhrumil & Hiral</h1>
-                            <div class="d-inline-block border-top border-bottom border-light py-3 px-4">
-                                <h3 class="text-uppercase font-weight-normal text-white m-0"
-                                    style="letter-spacing: 2px;">We're getting married</h3>
+                            <h1 class="display-1 font-secondary text-white fade-in"
+                                style="font-family: 'Great Vibes', cursive; font-size: 4.5rem;">Dhrumil & Hiral</h1>
+                            <div class="d-inline-block border-top border-bottom py-3 px-4"
+                                style="border-color: #ffcad4 !important;">
+                                <h3 class="text-uppercase font-weight-light text-white m-0 tracking-wide">We’re Getting
+                                    Married</h3>
                             </div>
-                            <!-- <button type="button" class="btn-play mx-auto" data-toggle="modal"
-                                data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">
-                                <span></span>
-                            </button> -->
                         </div>
                     </div>
                 </div>
             </div>
-            <a class="carousel-control-prev justify-content-start" href="#header-carousel" data-slide="prev">
-                <div class="btn btn-primary px-0" style="width: 68px; height: 68px;">
-                    <span class="carousel-control-prev-icon mt-3"></span>
+
+            <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+                <div class="carousel-nav-btn">
+                    <span class="carousel-control-prev-icon"></span>
                 </div>
             </a>
-            <a class="carousel-control-next justify-content-end" href="#header-carousel" data-slide="next">
-                <div class="btn btn-primary px-0" style="width: 68px; height: 68px;">
-                    <span class="carousel-control-next-icon mt-3"></span>
+            <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+                <div class="carousel-nav-btn">
+                    <span class="carousel-control-next-icon"></span>
                 </div>
             </a>
+
+            <style>
+                /* Carousel navigation button styling */
+                .carousel-control-prev,
+                .carousel-control-next {
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 70px;
+                    height: 70px;
+                    opacity: 1;
+                }
+
+                .carousel-nav-btn {
+                    background: rgba(234, 180, 180, 0.214);
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 0 12px rgba(181, 101, 118, 0.3);
+                }
+
+                .carousel-nav-btn:hover {
+                    background: #b56576;
+                    transform: scale(1.05);
+                    box-shadow: 0 0 15px rgba(181, 101, 118, 0.5);
+                }
+
+                .carousel-control-prev-icon,
+                .carousel-control-next-icon {
+                    filter: invert(1);
+                    width: 22px;
+                    height: 22px;
+                }
+            </style>
+
         </div>
     </div>
-    <div class="container-fluid py-5 bg-light">
+
+    <!-- Countdown Section -->
+    <div class="container-fluid py-5" style="background: linear-gradient(135deg, #fff0f3, #ffe5ec);">
         <div class="container text-center">
-            <h2 class="font-secondary display-4">Countdown to the Big Day</h2>
-            <div id="countdown" class="d-flex justify-content-center">
-                <div class="px-3">
-                    <div class="days display-4 font-weight-bold">00</div>
+            <h2 class="font-secondary display-4 mb-4" style="font-family: 'Great Vibes', cursive; color: #b56576;">
+                Countdown to Our Big Day</h2>
+            <div id="countdown" class="d-flex justify-content-center flex-wrap">
+                <div class="px-4 py-2">
+                    <div class="days display-4 font-weight-bold" style="color:#b56576;">00</div>
                     <div class="text-muted">Days</div>
                 </div>
-                <div class="px-3">
-                    <div class="hours display-4 font-weight-bold">00</div>
+                <div class="px-4 py-2">
+                    <div class="hours display-4 font-weight-bold" style="color:#b56576;">00</div>
                     <div class="text-muted">Hours</div>
                 </div>
-                <div class="px-3">
-                    <div class="minutes display-4 font-weight-bold">00</div>
+                <div class="px-4 py-2">
+                    <div class="minutes display-4 font-weight-bold" style="color:#b56576;">00</div>
                     <div class="text-muted">Minutes</div>
                 </div>
-                <div class="px-3">
-                    <div class="seconds display-4 font-weight-bold">00</div>
+                <div class="px-4 py-2">
+                    <div class="seconds display-4 font-weight-bold" style="color:#b56576;">00</div>
                     <div class="text-muted">Seconds</div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Extra Styling -->
+    <style>
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tracking-wide {
+            letter-spacing: 2px;
+        }
+    </style>
     <!-- Carousel End -->
+
 
 
     <!-- Video Modal Start -->
@@ -152,58 +310,58 @@
 
 
     <!-- About Start -->
-    <div class="container-fluid py-5" id="about">
+    <div class="container-fluid py-5" id="about" style="background-color: #fff5f7;">
         <div class="container py-5">
-            <div class="section-title position-relative text-center">
-                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">About</h6>
-                <h1 class="font-secondary display-4">Groom & Bride</h1>
-                <i class="far fa-heart text-dark"></i>
+            <div class="section-title position-relative text-center mb-5">
+                <h6 class="text-uppercase mb-3" style="letter-spacing: 3px; color: #d291bc;">About</h6>
+                <h1 class="font-secondary display-4" style="color: #b56576;">Groom & Bride</h1>
+                <i class="far fa-heart" style="color: #d291bc; font-size: 24px;"></i>
             </div>
-            <div class="row m-0 mb-4 mb-md-0 pb-2 pb-md-0">
-                <div class="col-md-6 p-0 text-center text-md-right">
-                    <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-5">
-                        <h3 class="mb-3">The Groom</h3>
-                        <p>Lorem elitr magna stet rebum dolores sed. Est stet labore est lorem lorem at amet sea, eos
-                            tempor rebum, labore amet ipsum sea lorem, stet rebum eirmod amet. Kasd clita kasd stet amet
-                            est dolor elitr.</p>
-                        <h3 class="font-secondary font-weight-normal text-muted mb-3"><i
-                                class="fa fa-male text-primary pr-3"></i>Dhrumil</h3>
-                        <div class="position-relative">
-                            <a class="btn btn-outline-primary btn-square mr-1" href="#"><i
-                                    class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-1" href="#"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-1" href="#"><i
-                                    class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-outline-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
+
+            <!-- Groom -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 text-center mb-4 mb-md-0">
+                    <img src="img/aboutd.png" class="rounded-circle shadow" alt="Groom"
+                        style="width: 250px; height: 250px; object-fit: cover; border: 6px solid #fcd5ce;">
+                </div>
+                <div class="col-md-6 text-center text-md-left">
+                    <h3 class="mb-3" style="color: #b56576;">The Groom</h3>
+                    <p style="color: #6c757d;">Dhrumil is calm, kind-hearted, and always ready with a smile. His
+                        thoughtful nature and charm light up every moment.</p>
+                    <h3 class="font-secondary font-weight-normal text-muted mb-3">
+                        <i class="fa fa-male pr-2" style="color: #d291bc;"></i>Dhrumil
+                    </h3>
+                    <div>
+                        <a class="btn btn-outline-primary btn-square mr-2" href="#"
+                            style="border-color: #b56576; color: #b56576;"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-primary btn-square mr-2" href="#"
+                            style="border-color: #b56576; color: #b56576;"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-primary btn-square" href="#"
+                            style="border-color: #b56576; color: #b56576;"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-                <div class="col-md-6 p-0" style="min-height: 400px;">
-                    <img class="position-absolute w-100 h-100" src="img/about-1.jpg" style="object-fit: cover;">
-                </div>
             </div>
-            <div class="row m-0">
-                <div class="col-md-6 p-0" style="min-height: 400px;">
-                    <img class="position-absolute w-100 h-100" src="img/about-2.jpg" style="object-fit: cover;">
+
+            <!-- Bride -->
+            <div class="row align-items-center flex-md-row-reverse">
+                <div class="col-md-6 text-center mb-4 mb-md-0">
+                    <img src="img/abouth.png" class="rounded-circle shadow" alt="Bride"
+                        style="width: 250px; height: 250px; object-fit: cover; border: 6px solid #fcd5ce;">
                 </div>
-                <div class="col-md-6 p-0 text-center text-md-left">
-                    <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-5">
-                        <h3 class="mb-3">The Bride</h3>
-                        <p>Lorem elitr magna stet rebum dolores sed. Est stet labore est lorem lorem at amet sea, eos
-                            tempor rebum, labore amet ipsum sea lorem, stet rebum eirmod amet. Kasd clita kasd stet amet
-                            est dolor elitr.</p>
-                        <h3 class="font-secondary font-weight-normal text-muted mb-3"><i
-                                class="fa fa-female text-primary pr-3"></i>Hiral</h3>
-                        <div class="position-relative">
-                            <a class="btn btn-outline-primary btn-square mr-1" href="#"><i
-                                    class="fab fa-instagram"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-1" href="#"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-1" href="#"><i
-                                    class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-outline-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
+                <div class="col-md-6 text-center text-md-left">
+                    <h3 class="mb-3" style="color: #b56576;">The Bride</h3>
+                    <p style="color: #6c757d;">Hiral’s elegance, laughter, and grace bring warmth to everyone around
+                        her. Her loving heart makes her truly special.</p>
+                    <h3 class="font-secondary font-weight-normal text-muted mb-3">
+                        <i class="fa fa-female pr-2" style="color: #d291bc;"></i>Hiral
+                    </h3>
+                    <div>
+                        <a class="btn btn-outline-primary btn-square mr-2" href="#"
+                            style="border-color: #b56576; color: #b56576;"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-primary btn-square mr-2" href="#"
+                            style="border-color: #b56576; color: #b56576;"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-primary btn-square" href="#"
+                            style="border-color: #b56576; color: #b56576;"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
@@ -211,49 +369,70 @@
     </div>
     <!-- About End -->
 
+
     <!-- Gallery Start -->
-    <div class="container-fluid bg-gallery" id="gallery" style="padding: 120px 0; margin: 90px 0;">
-        <div class="section-title position-relative text-center" style="margin-bottom: 120px;">
-            <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Gallery</h6>
-            <h1 class="font-secondary display-4 text-white">Our Photo Gallery</h1>
-            <i class="far fa-heart text-white"></i>
-        </div>
-        <div class="owl-carousel gallery-carousel">
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/gallery-1.jpg" alt="">
-                <a href="img/gallery-1.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
+    <div class="container-fluid bg-blush-pink" id="gallery" style="padding: 120px 0;">
+        <div class="container">
+            <div class="section-title position-relative text-center mb-5">
+                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Gallery</h6>
+                <h1 class="font-secondary display-4 text-dark">Our Photo Gallery</h1>
+                <i class="far fa-heart text-primary"></i>
             </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/gallery-2.jpg" alt="">
-                <a href="img/gallery-2.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/gallery-3.jpg" alt="">
-                <a href="img/gallery-3.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/gallery-4.jpg" alt="">
-                <a href="img/gallery-4.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/gallery-5.jpg" alt="">
-                <a href="img/gallery-5.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/gallery-6.jpg" alt="">
-                <a href="img/gallery-6.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
+
+            <div class="row gy-4 gx-4 justify-content-center"> <!-- ✅ Center and balance spacing -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="gallery-item position-relative overflow-hidden rounded">
+                        <img src="img/dhgallery-1.jpg" class="img-fluid w-100 rounded-3" alt="">
+                        <a href="img/dhgallery-1.jpg" data-lightbox="gallery" class="gallery-overlay">
+                            <i class="fa fa-2x fa-plus text-white"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="gallery-item position-relative overflow-hidden rounded">
+                        <img src="img/dhgallery-2.jpg" class="img-fluid w-100 rounded-3" alt="">
+                        <a href="img/dhgallery-2.jpg" data-lightbox="gallery" class="gallery-overlay">
+                            <i class="fa fa-2x fa-plus text-white"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="gallery-item position-relative overflow-hidden rounded">
+                        <img src="img/dhgallery-3.jpg" class="img-fluid w-100 rounded-3" alt="">
+                        <a href="img/dhgallery-3.jpg" data-lightbox="gallery" class="gallery-overlay">
+                            <i class="fa fa-2x fa-plus text-white"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="gallery-item position-relative overflow-hidden rounded">
+                        <img src="img/dhgallery-4.jpg" class="img-fluid w-100 rounded-3" alt="">
+                        <a href="img/dhgallery-4.jpg" data-lightbox="gallery" class="gallery-overlay">
+                            <i class="fa fa-2x fa-plus text-white"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="gallery-item position-relative overflow-hidden rounded">
+                        <img src="img/dhgallery-5.jpg" class="img-fluid w-100 rounded-3" alt="">
+                        <a href="img/dhgallery-5.jpg" data-lightbox="gallery" class="gallery-overlay">
+                            <i class="fa fa-2x fa-plus text-white"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="gallery-item position-relative overflow-hidden rounded">
+                        <img src="img/dhgallery-6.jpg" class="img-fluid w-100 rounded-3" alt="">
+                        <a href="img/dhgallery-6.jpg" data-lightbox="gallery" class="gallery-overlay">
+                            <i class="fa fa-2x fa-plus text-white"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -261,45 +440,64 @@
 
 
     <!-- Event Start -->
-    <div class="container-fluid py-5" id="event">
+    <div class="container-fluid py-5 bg-blush-pink" id="event">
         <div class="container py-5">
-            <div class="section-title position-relative text-center">
+            <div class="section-title position-relative text-center mb-5">
                 <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Event</h6>
-                <h1 class="font-secondary display-4">Our Wedding Event</h1>
+                <h1 class="font-secondary display-4 text-dark">Our Wedding Journey</h1>
                 <i class="far fa-heart text-dark"></i>
             </div>
-            <div class="row justify-content-center">
-                <!-- <div class="col-md-6 text-center">
-                    <h5 class="font-weight-normal text-muted mb-3 pb-3">Clita ipsum aliquyam dolor diam dolores elitr nonumy. Rebum sea vero ipsum eirmod tempor kasd. Diam amet lorem erat eos sit lorem elitr justo</h5>
-                </div> -->
+
+            <!-- 🌿 Journey Path Timeline -->
+            <div class="journey-timeline">
+
+                <!-- Haldi -->
+                <div class="journey-item left">
+                    <div class="journey-content">
+                        <div class="journey-icon">💛</div>
+                        <div class="journey-card">
+                            <img src="haldiimg.png" alt="Haldi Ceremony">
+                            <div class="journey-overlay">
+                                <h4>Haldi Ceremony</h4>
+                                <p class="font-weight-bold mb-1">04th December 2025</p>
+                                <p>Starts at 10:00 AM </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wedding -->
+                <div class="journey-item right">
+                    <div class="journey-content">
+                        <div class="journey-icon">💍</div>
+                        <div class="journey-card">
+                            <img src="weddingimg.jpg" alt="Wedding Ceremony">
+                            <div class="journey-overlay">
+                                <h4>Wedding</h4>
+                                <p class="font-weight-bold mb-1">05th December 2025</p>
+                                <p>Starts at 12:00 PM </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reception -->
+                <div class="journey-item left">
+                    <div class="journey-content">
+                        <div class="journey-icon">🎉</div>
+                        <div class="journey-card">
+                            <img src="receptionimg.jpg" alt="Reception">
+                            <div class="journey-overlay">
+                                <h4>Reception</h4>
+                                <p class="font-weight-bold mb-1">05th December 2025</p>
+                                <p>Starts at 8:30 PM </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-md-4 text-center">
-                    <img class="img-fluid mb-4" src="haldiimg.png"
-                        style="height: 250px; object-fit: cover; object-position: center;" alt="">
-                    <h4 class="mb-3">Haldi Ceremony</h4>
-                    <p class="mb-1 font-weight-bold">14th December 2025</p>
-                    <p class="mb-2">Mumbai, India</p>
-                    <p class="mb-0">10:00AM - 12:00PM</p>
-                </div>
-                <div class="col-md-4 text-center border-left border-right border-primary">
-                    <img class="img-fluid mb-4" src="weddingimg.jpg"
-                        style="height: 250px; object-fit: cover; object-position: center;" alt="">
-                    <h4 class="mb-3">Wedding</h4>
-                    <p class="mb-1 font-weight-bold">15th December 2025</p>
-                    <p class="mb-2">Mumbai, India</p>
-                    <p class="mb-0">12:00PM - 3:00PM</p>
-                </div>
-                <div class="col-md-4 text-center">
-                    <img class="img-fluid mb-4" src="receptionimg.jpg"
-                        style="height: 250px; object-fit: cover; object-position: center;" alt="">
-                    <h4 class="mb-3">Reception</h4>
-                    <p class="mb-1 font-weight-bold">15th December 2025</p>
-                    <p class="mb-2">Mumbai, India</p>
-                    <p class="mb-0">7:00PM - 11:00PM</p>
-                </div>
-            </div>
-            <!-- New Multi-Event Map Section -->
+
+            <!-- 📍 Map Tabs Section -->
             <div class="container mt-5">
                 <ul class="nav nav-tabs justify-content-center mb-4" id="mapTabs" role="tablist">
                     <li class="nav-item">
@@ -317,158 +515,401 @@
                 </ul>
 
                 <div class="tab-content" id="mapTabsContent">
-                    <!-- Haldi -->
-                    <div class="tab-pane fade show active" id="haldi-map" role="tabpanel">
+                    <!-- 🟡 Haldi -->
+                    <div class="tab-pane fade show active text-center" id="haldi-map" role="tabpanel">
                         <iframe src="https://www.google.com/maps?q=Northern+Heights,+Dahisar,+Mumbai&output=embed"
-                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
-                        </iframe>
+                            width="100%" height="450" style="border:0;" allowfullscreen loading="lazy"></iframe>
+                        <p class="mt-3 text-muted font-weight-bold">
+                            📍 Northern Heights, Dahisar, Mumbai
+                        </p>
                     </div>
 
-                    <!-- Wedding -->
-                    <div class="tab-pane fade" id="wedding-map" role="tabpanel">
-                        <iframe src="https://www.google.com/maps?q=Rajpipla+Palace,+Rajpipla,+Gujarat&output=embed"
-                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
-                        </iframe>
+                    <!-- 💍 Wedding -->
+                    <div class="tab-pane fade text-center" id="wedding-map" role="tabpanel">
+                        <iframe
+                            src="https://www.google.com/maps?q=Kora+Kendra+Dom-1,+R.M.+Bhatt+Road,+Borivali+West,+Mumbai&output=embed"
+                            width="100%" height="450" style="border:0;" allowfullscreen loading="lazy"></iframe>
+                        <p class="mt-3 text-muted font-weight-bold">
+                            💍 Kora Kendra Dom-1, R.M. Bhatt Road, Borivali (West), Mumbai
+                        </p>
                     </div>
 
-                    <!-- Reception -->
-                    <div class="tab-pane fade" id="reception-map" role="tabpanel">
-                        <iframe src="https://www.google.com/maps?q=The+Leela+Mumbai&output=embed" width="100%"
-                            height="450" style="border:0;" allowfullscreen="" loading="lazy">
-                        </iframe>
+                    <!-- 🎉 Reception -->
+                    <div class="tab-pane fade text-center" id="reception-map" role="tabpanel">
+                        <iframe
+                            src="https://www.google.com/maps?q=Ground+No.+619,+Near+Sheetla+Shankar+Mandir,+Kastur+Park,+Shimpoli,+Borivali+West,+Mumbai+400092&output=embed"
+                            width="100%" height="450" style="border:0;" allowfullscreen loading="lazy"></iframe>
+                        <p class="mt-3 text-muted font-weight-bold">
+                            🎉 Ground No. 619, Near Sheetla Shankar Mandir, Kastur Park, Shimpoli,<br>
+                            Borivali (West), Mumbai - 400092
+                        </p>
                     </div>
                 </div>
             </div>
+
+
 
         </div>
     </div>
     <!-- Event End -->
 
 
-    <!-- Friends & Family Start -->
-    <div class="container-fluid py-5" id="family">
-        <div class="container pt-5 pb-3">
-            <div class="section-title position-relative text-center">
-                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Family</h6>
-                <h1 class="font-secondary display-4">Groomsmen & Bridesmaid</h1>
-                <i class="far fa-heart text-dark"></i>
+
+
+    <!-- 💌 Messages from Loved Ones -->
+    <section id="messages" class="py-5" style="background-color: #fff7f9;">
+        <div class="container text-center">
+            <h2 class="mb-5"
+                style="font-family: 'Great Vibes', cursive; font-size: 2.8rem; color: #d47b8a; text-shadow: 0 0 8px rgba(212, 123, 138, 0.4);">
+                Messages from Loved Ones 💌
+            </h2>
+
+            <div class="row g-4" id="messageContainer">
+                <!-- Default Messages -->
+                <div class="col-md-4">
+                    <div class="card shadow-lg border-0 p-4" style="background-color: #fff; border-radius: 20px;">
+                        <p class="text-muted" style="font-style: italic;">“Wishing you both a lifetime of love,
+                            laughter, and endless happiness.”</p>
+                        <h6 class="mt-3 mb-0" style="color:#444;">— Aunt Meena</h6>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-lg border-0 p-4" style="background-color: #fff; border-radius: 20px;">
+                        <p class="text-muted" style="font-style: italic;">“May your marriage be filled with beautiful
+                            memories and a love that grows stronger every day.”</p>
+                        <h6 class="mt-3 mb-0" style="color:#444;">— Rahul & Priya</h6>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-lg border-0 p-4" style="background-color: #fff; border-radius: 20px;">
+                        <p class="text-muted" style="font-style: italic;">“Two hearts, one soul — wishing you an
+                            eternity of love and joy together!”</p>
+                        <h6 class="mt-3 mb-0" style="color:#444;">— Neha & Rohan</h6>
+                    </div>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-12 text-center mb-2">
-                    <ul class="list-inline mb-4" id="portfolio-flters">
-                        <li class="btn btn-outline-primary font-weight-bold m-1 py-2 px-4" data-filter=".first">
-                            Groomsmen</li>
-                        <li class="btn btn-outline-primary font-weight-bold m-1 py-2 px-4" data-filter=".second">
-                            Bridesmaid</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row portfolio-container">
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
-                    <div class="position-relative mb-2">
-                        <img class="img-fluid w-100" src="img/groomsmen-1.jpg" alt="">
-                        <div class="bg-secondary text-center p-4">
-                            <h4 class="mb-3">Full Name</h4>
-                            <p class="text-uppercase">Best Friend</p>
-                            <div class="d-inline-block">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-                    <div class="position-relative mb-2">
-                        <img class="img-fluid w-100" src="img/bridesmaid-1.jpg" alt="">
-                        <div class="bg-secondary text-center p-4">
-                            <h4 class="mb-3">Full Name</h4>
-                            <p class="text-uppercase">Best Friend</p>
-                            <div class="d-inline-block">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
-                    <div class="position-relative mb-2">
-                        <img class="img-fluid w-100" src="img/groomsmen-2.jpg" alt="">
-                        <div class="bg-secondary text-center p-4">
-                            <h4 class="mb-3">Full Name</h4>
-                            <p class="text-uppercase">Best Friend</p>
-                            <div class="d-inline-block">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-                    <div class="position-relative mb-2">
-                        <img class="img-fluid w-100" src="img/bridesmaid-2.jpg" alt="">
-                        <div class="bg-secondary text-center p-4">
-                            <h4 class="mb-3">Full Name</h4>
-                            <p class="text-uppercase">Best Friend</p>
-                            <div class="d-inline-block">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
-                    <div class="position-relative mb-2">
-                        <img class="img-fluid w-100" src="img/groomsmen-3.jpg" alt="">
-                        <div class="bg-secondary text-center p-4">
-                            <h4 class="mb-3">Full Name</h4>
-                            <p class="text-uppercase">Best Friend</p>
-                            <div class="d-inline-block">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-                    <div class="position-relative mb-2">
-                        <img class="img-fluid w-100" src="img/bridesmaid-3.jpg" alt="">
-                        <div class="bg-secondary text-center p-4">
-                            <h4 class="mb-3">Full Name</h4>
-                            <p class="text-uppercase">Best Friend</p>
-                            <div class="d-inline-block">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+            <!-- 💖 Send Wishes Button -->
+            <div class="mt-5">
+                <button id="openForm" class="btn btn-lg"
+                    style="background-color: #f9c5d1; color: #fff; border: none; border-radius: 30px; padding: 12px 40px; box-shadow: 0 0 10px rgba(212, 123, 138, 0.6);">
+                    💖 Send Your Wishes
+                </button>
             </div>
         </div>
-    </div>
-    <!-- Friends & Family End -->
+    </section>
 
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-white py-5" id="contact" style="margin-top: 90px;">
+    <!-- 🎀 Popup Form Modal -->
+    <div id="wishModal"
+        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; justify-content:center; align-items:center;">
+        <div
+            style="background:white; padding:30px; border-radius:20px; width:90%; max-width:400px; text-align:center; position:relative;">
+            <h4 style="color:#d47b8a; font-family:'Great Vibes', cursive; margin-bottom:15px;">💌 Share Your Wishes</h4>
+            <input type="text" id="wishName" placeholder="Your Name" class="form-control mb-3">
+            <textarea id="wishMessage" placeholder="Your Message" class="form-control mb-3" rows="4"></textarea>
+            <button id="submitWish" class="btn btn-success"
+                style="background-color:#f9c5d1; border:none;">Submit</button>
+            <button id="closeForm" class="btn btn-secondary mt-2">Cancel</button>
+        </div>
+    </div>
+
+    <!-- ✨ Styles & Script -->
+    <style>
+        #messages .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 15px rgba(212, 123, 138, 0.3);
+        }
+
+        .delete-btn {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 1.2rem;
+            color: #d47b8a;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .delete-btn:hover {
+            opacity: 1;
+        }
+
+        #wishModal input,
+        #wishModal textarea {
+            border-radius: 10px;
+            border: 1px solid #f3c1cc;
+        }
+
+        #messages h6 {
+            color: #444 !important;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            #messages h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+
+    <script>
+        const modal = document.getElementById('wishModal');
+        const openForm = document.getElementById('openForm');
+        const closeForm = document.getElementById('closeForm');
+        const submitWish = document.getElementById('submitWish');
+        const messageContainer = document.getElementById('messageContainer');
+        const ADMIN_PIN = "DH-051225";
+
+        openForm.onclick = () => modal.style.display = 'flex';
+        closeForm.onclick = () => modal.style.display = 'none';
+
+        const userID = localStorage.getItem('wishUserID') || Date.now().toString();
+        localStorage.setItem('wishUserID', userID);
+
+        // Load saved wishes
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedWishes = JSON.parse(localStorage.getItem('wishes')) || [];
+            savedWishes.forEach((wish, index) => addWishCard(wish, index));
+        });
+
+        // Submit new wish
+        submitWish.onclick = () => {
+            const name = document.getElementById('wishName').value.trim();
+            const message = document.getElementById('wishMessage').value.trim();
+
+            if (name && message) {
+                const wish = { name, message, owner: userID };
+                const savedWishes = JSON.parse(localStorage.getItem('wishes')) || [];
+                savedWishes.push(wish);
+                localStorage.setItem('wishes', JSON.stringify(savedWishes));
+                addWishCard(wish, savedWishes.length - 1);
+
+                document.getElementById('wishName').value = '';
+                document.getElementById('wishMessage').value = '';
+                modal.style.display = 'none';
+            } else {
+                alert('Please fill in both fields 💌');
+            }
+        };
+
+        // Add wish card
+        function addWishCard(wish, index) {
+            const col = document.createElement('div');
+            col.className = 'col-md-4';
+            const canDelete = wish.owner === userID;
+            col.innerHTML = `
+      <div class="card shadow-lg border-0 p-4 mt-4 position-relative" style="background-color: #fff; border-radius: 20px;">
+        <span class="delete-btn" onclick="requestDelete(${index})">&times;</span>
+        <p class="text-muted" style="font-style: italic;">“${wish.message}”</p>
+        <h6 class="mt-3 mb-0" style="color:#444;">— ${wish.name}</h6>
+      </div>`;
+            const btn = col.querySelector('.delete-btn');
+            if (!canDelete) btn.style.display = 'none'; // hide delete if not owner
+            messageContainer.appendChild(col);
+        }
+
+        // Delete wish (owner or admin)
+        function requestDelete(index) {
+            const savedWishes = JSON.parse(localStorage.getItem('wishes')) || [];
+            const wish = savedWishes[index];
+            if (wish.owner === userID) {
+                performDelete(index);
+            } else {
+                const enteredPIN = prompt('Enter Admin PIN to delete this wish:');
+                if (enteredPIN === ADMIN_PIN) performDelete(index);
+                else if (enteredPIN !== null) alert('Incorrect PIN ❌');
+            }
+        }
+
+        function performDelete(index) {
+            const savedWishes = JSON.parse(localStorage.getItem('wishes')) || [];
+            savedWishes.splice(index, 1);
+            localStorage.setItem('wishes', JSON.stringify(savedWishes));
+            messageContainer.innerHTML = '';
+            savedWishes.forEach((wish, i) => addWishCard(wish, i));
+            alert('Wish deleted 💔');
+        }
+    </script>
+
+
+
+    <!-- Footer Start (Blush-Pink Wedding Theme) -->
+    <footer class="site-footer" id="contact" style="margin-top:90px;">
         <div class="container text-center py-5">
-            <div class="section-title position-relative text-center">
-                <h1 class="font-secondary display-3 text-white">Thank You</h1>
-                <i class="far fa-heart text-white"></i>
+            <div class="section-title position-relative text-center mb-3">
+                <h1 class="font-secondary display-3 text-white mb-0" style="font-size:2.75rem;">Thank You</h1>
+                <i class="far fa-heart" style="color:#f1c7cc; font-size:22px; position:relative; top:6px;"></i>
             </div>
-            <div class="d-flex justify-content-center mb-4">
-                <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i
-                        class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i
-                        class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-lg btn-outline-light btn-lg-square" href="#"><i class="fab fa-instagram"></i></a>
+
+            <p class="lead mb-4" style="color:#f6e6e8; max-width:720px; margin:0 auto;">
+                Your love, blessings and presence make our day truly special. We can’t wait to celebrate with you.
+            </p>
+
+            <!-- Social Icons -->
+            <div class="d-flex justify-content-center mb-4" style="gap:12px;">
+                <a class="social-btn" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a class="social-btn" href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a class="social-btn" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a class="social-btn" href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
             </div>
-            <div class="d-flex justify-content-center py-2">
-                <p class="text-white" href="#">info@example.com</p>
-                <span class="px-3">|</span>
-                <p class="text-white" href="#">+012 345 6789</p>
+
+            <!-- Contact Info -->
+            <div class="d-flex justify-content-center align-items-center flex-column flex-md-row text-white mb-3"
+                style="gap:10px;">
+                <a href="mailto:info@example.com" style="color:#ffeef0; text-decoration:none;">📧 info@example.com</a>
+                <span style="color:#ffdfe3;">|</span>
+                <a href="tel:+910123456789" style="color:#ffeef0; text-decoration:none;">📞 +91 01234 56789</a>
             </div>
-            <p class="m-0">&copy; <a class="text-primary" href="#">Domain Name</a>. Designed by <a class="text-primary"
-                    href="https://htmlcodex.com">Nihar Shah</a>
+
+            <p class="m-0 small" style="color:#f0dfe1;">
+                &copy; <span style="color:#b56576;">Dhrumil &amp; Hiral</span>. Designed by
+                <a href="https://htmlcodex.com" target="_blank" rel="noopener"
+                    style="color:#f9c5d1; text-decoration:none;">Nihar Shah</a>
             </p>
         </div>
-    </div>
+    </footer>
     <!-- Footer End -->
 
-
-    <!-- Scroll to Bottom -->
-    <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
+    <!-- Scroll to Bottom (small down chevron) -->
+    <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom" aria-hidden="true"
+        style="position:fixed; left:50%; transform:translateX(-50%); bottom:120px; z-index:80; display:none;"></i>
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-outline-primary btn-lg-square back-to-top"><i
-            class="fa fa-angle-double-up"></i></a>
+    <a href="#" class="btn back-to-top" aria-label="Back to top" style="display:none;">
+        <i class="fa fa-angle-double-up"></i>
+    </a>
+
+    <!-- Footer Styles (add to your css file or inside a <style> block) -->
+    <style>
+        /* Footer background and general */
+        .site-footer {
+            background: linear-gradient(180deg, #2b2024 0%, #22181b 100%);
+            /* dark but warm */
+            color: #fff;
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+
+        /* Section title adjustments to match site fonts */
+        .site-footer .font-secondary {
+            font-family: "Great Vibes", cursive;
+            color: #fff;
+            letter-spacing: .5px;
+        }
+
+        /* Social buttons (blush theme) */
+        .social-btn {
+            width: 48px;
+            height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: rgba(249, 197, 209, 0.08);
+            color: #f9c5d1;
+            border: 1px solid rgba(249, 197, 209, 0.18);
+            transition: all 0.25s ease;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .social-btn:hover {
+            background: linear-gradient(90deg, rgba(249, 197, 209, 0.14), rgba(183, 110, 121, 0.12));
+            color: #fff;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(183, 110, 121, 0.15);
+        }
+
+        /* Contact link colors */
+        .site-footer a[href^="mailto:"],
+        .site-footer a[href^="tel:"] {
+            font-weight: 600;
+            transition: color .2s;
+        }
+
+        .site-footer a[href^="mailto:" i],
+        .site-footer a[href^="tel:" i] {
+            color: #ffeef0;
+        }
+
+        .site-footer a[href^="mailto:" i]:hover,
+        .site-footer a[href^="tel:" i]:hover {
+            color: #f9c5d1;
+            text-decoration: none;
+        }
+
+        /* Small responsive tweaks */
+        @media (max-width: 767px) {
+            .site-footer .display-3 {
+                font-size: 2rem;
+            }
+
+            .social-btn {
+                width: 44px;
+                height: 44px;
+                font-size: 16px;
+            }
+        }
+
+        /* Back to top button styling */
+        .back-to-top {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 99;
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: rgba(249, 197, 209, 0.12);
+            color: #f9c5d1;
+            border: 1px solid rgba(249, 197, 209, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            text-decoration: none;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(183, 110, 121, 0.12);
+            color: #fff;
+            background: linear-gradient(90deg, #f9c5d1, #b56576);
+        }
+
+        /* show/hide handled by JS below */
+    </style>
+
+    <!-- Small JS to show back-to-top and scroll-to-bottom controls (add at bottom of body) -->
+    <script>
+        (function () {
+            const backBtn = document.querySelector('.back-to-top');
+            const downBtn = document.querySelector('.scroll-to-bottom');
+
+            // show/hide controls on scroll
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 400) backBtn.style.display = 'flex';
+                else backBtn.style.display = 'none';
+
+                // show down button only at top
+                if (window.scrollY < 80) downBtn.style.display = 'block';
+                else downBtn.style.display = 'none';
+            });
+
+            // smooth scroll to top
+            backBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // smooth scroll to next section (approx)
+            downBtn.addEventListener('click', () => {
+                window.scrollTo({ top: window.innerHeight * 0.9, behavior: 'smooth' });
+            });
+        })();
+    </script>
+
 
 
     <!-- JavaScript Libraries -->
