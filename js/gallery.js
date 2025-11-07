@@ -29,16 +29,23 @@ uploadForm.addEventListener("submit", async (e) => {
 
 // Load all photos
 async function loadGallery() {
-    photosDiv.innerHTML = "";
-    const res = await fetch(`${backendURL}/photos`);
-    const data = await res.json();
-    const images = data.photos; // extract array
+  photosDiv.innerHTML = "";
+  const res = await fetch(`${backendURL}/photos`);
+  const images = await res.json();
 
-    images.forEach((imgURL) => {
-        const img = document.createElement("img");
-        img.src = `${backendURL}/${imgURL}`;
-        photosDiv.appendChild(img);
-    });
+  // Handle both array or object type responses
+  const photoList = Array.isArray(images) ? images : images.photos;
+
+  photoList.forEach((imgPath) => {
+    const img = document.createElement("img");
+    img.src = `${backendURL}/${imgPath}`;
+    img.style.width = "200px";
+    img.style.height = "200px";
+    img.style.objectFit = "cover";
+    img.style.margin = "10px";
+    img.style.borderRadius = "10px";
+    photosDiv.appendChild(img);
+  });
 }
 
 window.onload = loadGallery;
