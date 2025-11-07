@@ -16,10 +16,10 @@ def home():
 
 @app.route("/upload", methods=["POST"])
 def upload_file():
-    if "file" not in request.files:
-        return jsonify({"error": "No file part"}), 400
+    if "image" not in request.files:
+        return jsonify({"error": "No image part"}), 400
 
-    file = request.files["file"]
+    file = request.files["image"]
     if file.filename == "":
         return jsonify({"error": "No file selected"}), 400
 
@@ -31,7 +31,7 @@ def upload_file():
 @app.route("/photos", methods=["GET"])
 def list_photos():
     files = os.listdir(app.config["UPLOAD_FOLDER"])
-    return jsonify({"photos": files})
+    return jsonify([f"uploads/{file}" for file in files])
 
 @app.route("/uploads/<filename>")
 def get_photo(filename):

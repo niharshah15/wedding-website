@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Memories Gallery</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <h1>💞 Wedding Memories Gallery</h1>
+
+  <section id="upload-section">
+    <h3>Upload your favorite moments</h3>
+    <form id="uploadForm" enctype="multipart/form-data">
+      <input type="file" id="image" name="image" accept="image/*" required />
+      <button type="submit">Upload</button>
+    </form>
+    <p id="status"></p>
+  </section>
+
+  <section id="gallery">
+    <h3>All Uploaded Photos</h3>
+    <div id="photos" class="photo-grid"></div>
+  </section>
+
+  <script src="js/gallery.js"></script>
+</body>
+</html>
