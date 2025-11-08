@@ -437,493 +437,519 @@
         </div>
     </div>
     <!-- Gallery End -->
-
-
-    <!-- Event Start -->
-    <div class="container-fluid py-5 bg-blush-pink" id="event">
+    <div class="container-fluid py-5" id="upload-section" style="background-color: #fff5f7;">
         <div class="container py-5">
             <div class="section-title position-relative text-center mb-5">
-                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Event</h6>
-                <h1 class="font-secondary display-4 text-dark">Our Wedding Journey</h1>
-                <i class="far fa-heart text-dark"></i>
+                <h6 class="text-uppercase mb-3" style="letter-spacing: 3px; color: #d291bc;">Share a Memory</h6>
+                <h1 class="font-secondary display-4" style="color: #b56576;">Upload Your Photo</h1>
+                <i class="far fa-heart" style="color: #d291bc; font-size: 24px;"></i>
             </div>
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <p class="mb-4" style="color: #6c757d;">Share your favorite moments from our events! Upload a photo
+                        for us all to see.</p>
 
-            <!-- 🌿 Journey Path Timeline -->
-            <div class="journey-timeline">
-
-                <!-- Haldi -->
-                <div class="journey-item left">
-                    <div class="journey-content">
-                        <div class="journey-icon">💛</div>
-                        <div class="journey-card">
-                            <img src="haldiimg.png" alt="Haldi Ceremony">
-                            <div class="journey-overlay">
-                                <h4>Haldi Ceremony</h4>
-                                <p class="font-weight-bold mb-1">04th December 2025</p>
-                                <p>Starts at 10:00 AM </p>
-                            </div>
+                    <form id="uploadForm" class="mb-4">
+                        <div class="form-group">
+                            <input type="file" id="image" name="image" accept="image/*" class="form-control" required>
                         </div>
-                    </div>
-                </div>
+                        <button type_submit" class="btn btn-primary"
+                            style="background-color: #b56576; border-color: #b56576; padding: 10px 20px;">Upload
+                            Photo</button>
+                    </form>
 
-                <!-- Wedding -->
-                <div class="journey-item right">
-                    <div class="journey-content">
-                        <div class="journey-icon">💍</div>
-                        <div class="journey-card">
-                            <img src="weddingimg.jpg" alt="Wedding Ceremony">
-                            <div class="journey-overlay">
-                                <h4>Wedding</h4>
-                                <p class="font-weight-bold mb-1">05th December 2025</p>
-                                <p>Starts at 12:00 PM </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <p id="status" class="font-weight-bold"></p>
 
-                <!-- Reception -->
-                <div class="journey-item left">
-                    <div class="journey-content">
-                        <div class="journey-icon">🎉</div>
-                        <div class="journey-card">
-                            <img src="receptionimg.jpg" alt="Reception">
-                            <div class="journey-overlay">
-                                <h4>Reception</h4>
-                                <p class="font-weight-bold mb-1">05th December 2025</p>
-                                <p>Starts at 8:30 PM </p>
-                            </div>
-                        </div>
+                    <div id="photos" class="mt-4"
+                        style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
                     </div>
                 </div>
             </div>
-
-            <!-- 📍 Map Tabs Section -->
-            <div class="container mt-5">
-                <ul class="nav nav-tabs justify-content-center mb-4" id="mapTabs" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="haldi-tab" data-toggle="tab" href="#haldi-map"
-                            role="tab">Haldi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="wedding-tab" data-toggle="tab" href="#wedding-map"
-                            role="tab">Wedding</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="reception-tab" data-toggle="tab" href="#reception-map"
-                            role="tab">Reception</a>
-                    </li>
-                </ul>
-
-                <div class="tab-content" id="mapTabsContent">
-                    <!-- 🟡 Haldi -->
-                    <div class="tab-pane fade show active text-center" id="haldi-map" role="tabpanel">
-                        <iframe src="https://www.google.com/maps?q=Northern+Heights,+Dahisar,+Mumbai&output=embed"
-                            width="100%" height="450" style="border:0;" allowfullscreen loading="lazy"></iframe>
-                        <p class="mt-3 text-muted font-weight-bold">
-                            📍 Northern Heights, Dahisar, Mumbai
-                        </p>
-                    </div>
-
-                    <!-- 💍 Wedding -->
-                    <div class="tab-pane fade text-center" id="wedding-map" role="tabpanel">
-                        <iframe
-                            src="https://www.google.com/maps?q=Kora+Kendra+Dom-1,+R.M.+Bhatt+Road,+Borivali+West,+Mumbai&output=embed"
-                            width="100%" height="450" style="border:0;" allowfullscreen loading="lazy"></iframe>
-                        <p class="mt-3 text-muted font-weight-bold">
-                            💍 Kora Kendra Dom-1, R.M. Bhatt Road, Borivali (West), Mumbai
-                        </p>
-                    </div>
-
-                    <!-- 🎉 Reception -->
-                    <div class="tab-pane fade text-center" id="reception-map" role="tabpanel">
-                        <iframe
-                            src="https://www.google.com/maps?q=Ground+No.+619,+Near+Sheetla+Shankar+Mandir,+Kastur+Park,+Shimpoli,+Borivali+West,+Mumbai+400092&output=embed"
-                            width="100%" height="450" style="border:0;" allowfullscreen loading="lazy"></iframe>
-                        <p class="mt-3 text-muted font-weight-bold">
-                            🎉 Ground No. 619, Near Sheetla Shankar Mandir, Kastur Park, Shimpoli,<br>
-                            Borivali (West), Mumbai - 400092
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-
-
-        </div>
-    </div>
-    <!-- Event End -->
-
-
-
-
-    <!-- 💌 Messages from Loved Ones -->
-    <section id="messages" class="py-5" style="background-color: #fff7f9;">
-        <div class="container text-center">
-            <h2 class="mb-5"
-                style="font-family: 'Great Vibes', cursive; font-size: 2.8rem; color: #d47b8a; text-shadow: 0 0 8px rgba(212, 123, 138, 0.4);">
-                Messages from Loved Ones 💌
-            </h2>
-
-            <div class="row g-4" id="messageContainer">
-                <!-- Default Messages -->
-                <div class="col-md-4">
-                    <div class="card shadow-lg border-0 p-4" style="background-color: #fff; border-radius: 20px;">
-                        <p class="text-muted" style="font-style: italic;">“Wishing you both a lifetime of love,
-                            laughter, and endless happiness.”</p>
-                        <h6 class="mt-3 mb-0" style="color:#444;">— Aunt Meena</h6>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card shadow-lg border-0 p-4" style="background-color: #fff; border-radius: 20px;">
-                        <p class="text-muted" style="font-style: italic;">“May your marriage be filled with beautiful
-                            memories and a love that grows stronger every day.”</p>
-                        <h6 class="mt-3 mb-0" style="color:#444;">— Rahul & Priya</h6>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card shadow-lg border-0 p-4" style="background-color: #fff; border-radius: 20px;">
-                        <p class="text-muted" style="font-style: italic;">“Two hearts, one soul — wishing you an
-                            eternity of love and joy together!”</p>
-                        <h6 class="mt-3 mb-0" style="color:#444;">— Neha & Rohan</h6>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 💖 Send Wishes Button -->
-            <div class="mt-5">
-                <button id="openForm" class="btn btn-lg"
-                    style="background-color: #f9c5d1; color: #fff; border: none; border-radius: 30px; padding: 12px 40px; box-shadow: 0 0 10px rgba(212, 123, 138, 0.6);">
-                    💖 Send Your Wishes
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- 🎀 Popup Form Modal -->
-    <div id="wishModal"
-        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; justify-content:center; align-items:center;">
-        <div
-            style="background:white; padding:30px; border-radius:20px; width:90%; max-width:400px; text-align:center; position:relative;">
-            <h4 style="color:#d47b8a; font-family:'Great Vibes', cursive; margin-bottom:15px;">💌 Share Your Wishes</h4>
-            <input type="text" id="wishName" placeholder="Your Name" class="form-control mb-3">
-            <textarea id="wishMessage" placeholder="Your Message" class="form-control mb-3" rows="4"></textarea>
-            <button id="submitWish" class="btn btn-success"
-                style="background-color:#f9c5d1; border:none;">Submit</button>
-            <button id="closeForm" class="btn btn-secondary mt-2">Cancel</button>
         </div>
     </div>
 
-    <!-- ✨ Styles & Script -->
-    <style>
-        #messages .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 0 15px rgba(212, 123, 138, 0.3);
+<!-- Event Start -->
+<div class="container-fluid py-5 bg-blush-pink" id="event">
+    <div class="container py-5">
+        <div class="section-title position-relative text-center mb-5">
+            <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Event</h6>
+            <h1 class="font-secondary display-4 text-dark">Our Wedding Journey</h1>
+            <i class="far fa-heart text-dark"></i>
+        </div>
+
+        <!-- 🌿 Journey Path Timeline -->
+        <div class="journey-timeline">
+
+            <!-- Haldi -->
+            <div class="journey-item left">
+                <div class="journey-content">
+                    <div class="journey-icon">💛</div>
+                    <div class="journey-card">
+                        <img src="haldiimg.png" alt="Haldi Ceremony">
+                        <div class="journey-overlay">
+                            <h4>Haldi Ceremony</h4>
+                            <p class="font-weight-bold mb-1">04th December 2025</p>
+                            <p>Starts at 10:00 AM </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wedding -->
+            <div class="journey-item right">
+                <div class="journey-content">
+                    <div class="journey-icon">💍</div>
+                    <div class="journey-card">
+                        <img src="weddingimg.jpg" alt="Wedding Ceremony">
+                        <div class="journey-overlay">
+                            <h4>Wedding</h4>
+                            <p class="font-weight-bold mb-1">05th December 2025</p>
+                            <p>Starts at 12:00 PM </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reception -->
+            <div class="journey-item left">
+                <div class="journey-content">
+                    <div class="journey-icon">🎉</div>
+                    <div class="journey-card">
+                        <img src="receptionimg.jpg" alt="Reception">
+                        <div class="journey-overlay">
+                            <h4>Reception</h4>
+                            <p class="font-weight-bold mb-1">05th December 2025</p>
+                            <p>Starts at 8:30 PM </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 📍 Map Tabs Section -->
+        <div class="container mt-5">
+            <ul class="nav nav-tabs justify-content-center mb-4" id="mapTabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="haldi-tab" data-toggle="tab" href="#haldi-map" role="tab">Haldi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="wedding-tab" data-toggle="tab" href="#wedding-map" role="tab">Wedding</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="reception-tab" data-toggle="tab" href="#reception-map"
+                        role="tab">Reception</a>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="mapTabsContent">
+                <!-- 🟡 Haldi -->
+                <div class="tab-pane fade show active text-center" id="haldi-map" role="tabpanel">
+                    <iframe src="https://www.google.com/maps?q=Northern+Heights,+Dahisar,+Mumbai&output=embed"
+                        width="100%" height="450" style="border:0;" allowfullscreen loading="lazy"></iframe>
+                    <p class="mt-3 text-muted font-weight-bold">
+                        📍 Northern Heights, Dahisar, Mumbai
+                    </p>
+                </div>
+
+                <!-- 💍 Wedding -->
+                <div class="tab-pane fade text-center" id="wedding-map" role="tabpanel">
+                    <iframe
+                        src="https://www.google.com/maps?q=Kora+Kendra+Dom-1,+R.M.+Bhatt+Road,+Borivali+West,+Mumbai&output=embed"
+                        width="100%" height="450" style="border:0;" allowfullscreen loading="lazy"></iframe>
+                    <p class="mt-3 text-muted font-weight-bold">
+                        💍 Kora Kendra Dom-1, R.M. Bhatt Road, Borivali (West), Mumbai
+                    </p>
+                </div>
+
+                <!-- 🎉 Reception -->
+                <div class="tab-pane fade text-center" id="reception-map" role="tabpanel">
+                    <iframe
+                        src="https://www.google.com/maps?q=Ground+No.+619,+Near+Sheetla+Shankar+Mandir,+Kastur+Park,+Shimpoli,+Borivali+West,+Mumbai+400092&output=embed"
+                        width="100%" height="450" style="border:0;" allowfullscreen loading="lazy"></iframe>
+                    <p class="mt-3 text-muted font-weight-bold">
+                        🎉 Ground No. 619, Near Sheetla Shankar Mandir, Kastur Park, Shimpoli,<br>
+                        Borivali (West), Mumbai - 400092
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+<!-- Event End -->
+
+
+
+
+<!-- 💌 Messages from Loved Ones -->
+<section id="messages" class="py-5" style="background-color: #fff7f9;">
+    <div class="container text-center">
+        <h2 class="mb-5"
+            style="font-family: 'Great Vibes', cursive; font-size: 2.8rem; color: #d47b8a; text-shadow: 0 0 8px rgba(212, 123, 138, 0.4);">
+            Messages from Loved Ones 💌
+        </h2>
+
+        <div class="row g-4" id="messageContainer">
+            <!-- Default Messages -->
+            <div class="col-md-4">
+                <div class="card shadow-lg border-0 p-4" style="background-color: #fff; border-radius: 20px;">
+                    <p class="text-muted" style="font-style: italic;">“Wishing you both a lifetime of love,
+                        laughter, and endless happiness.”</p>
+                    <h6 class="mt-3 mb-0" style="color:#444;">— Aunt Meena</h6>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-lg border-0 p-4" style="background-color: #fff; border-radius: 20px;">
+                    <p class="text-muted" style="font-style: italic;">“May your marriage be filled with beautiful
+                        memories and a love that grows stronger every day.”</p>
+                    <h6 class="mt-3 mb-0" style="color:#444;">— Rahul & Priya</h6>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-lg border-0 p-4" style="background-color: #fff; border-radius: 20px;">
+                    <p class="text-muted" style="font-style: italic;">“Two hearts, one soul — wishing you an
+                        eternity of love and joy together!”</p>
+                    <h6 class="mt-3 mb-0" style="color:#444;">— Neha & Rohan</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- 💖 Send Wishes Button -->
+        <div class="mt-5">
+            <button id="openForm" class="btn btn-lg"
+                style="background-color: #f9c5d1; color: #fff; border: none; border-radius: 30px; padding: 12px 40px; box-shadow: 0 0 10px rgba(212, 123, 138, 0.6);">
+                💖 Send Your Wishes
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- 🎀 Popup Form Modal -->
+<div id="wishModal"
+    style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; justify-content:center; align-items:center;">
+    <div
+        style="background:white; padding:30px; border-radius:20px; width:90%; max-width:400px; text-align:center; position:relative;">
+        <h4 style="color:#d47b8a; font-family:'Great Vibes', cursive; margin-bottom:15px;">💌 Share Your Wishes</h4>
+        <input type="text" id="wishName" placeholder="Your Name" class="form-control mb-3">
+        <textarea id="wishMessage" placeholder="Your Message" class="form-control mb-3" rows="4"></textarea>
+        <button id="submitWish" class="btn btn-success" style="background-color:#f9c5d1; border:none;">Submit</button>
+        <button id="closeForm" class="btn btn-secondary mt-2">Cancel</button>
+    </div>
+</div>
+
+<!-- ✨ Styles & Script -->
+<style>
+    #messages .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 0 15px rgba(212, 123, 138, 0.3);
+    }
+
+    .delete-btn {
+        position: absolute;
+        top: 8px;
+        right: 12px;
+        font-size: 1.2rem;
+        color: #d47b8a;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 0.3s;
+    }
+
+    .delete-btn:hover {
+        opacity: 1;
+    }
+
+    #wishModal input,
+    #wishModal textarea {
+        border-radius: 10px;
+        border: 1px solid #f3c1cc;
+    }
+
+    #messages h6 {
+        color: #444 !important;
+        font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+        #messages h2 {
+            font-size: 2.2rem;
         }
+    }
+</style>
 
-        .delete-btn {
-            position: absolute;
-            top: 8px;
-            right: 12px;
-            font-size: 1.2rem;
-            color: #d47b8a;
-            cursor: pointer;
-            opacity: 0.7;
-            transition: opacity 0.3s;
-        }
+<script>
+    const modal = document.getElementById('wishModal');
+    const openForm = document.getElementById('openForm');
+    const closeForm = document.getElementById('closeForm');
+    const submitWish = document.getElementById('submitWish');
+    const messageContainer = document.getElementById('messageContainer');
+    const ADMIN_PIN = "DH-051225";
 
-        .delete-btn:hover {
-            opacity: 1;
-        }
+    openForm.onclick = () => modal.style.display = 'flex';
+    closeForm.onclick = () => modal.style.display = 'none';
 
-        #wishModal input,
-        #wishModal textarea {
-            border-radius: 10px;
-            border: 1px solid #f3c1cc;
-        }
+    const userID = localStorage.getItem('wishUserID') || Date.now().toString();
+    localStorage.setItem('wishUserID', userID);
 
-        #messages h6 {
-            color: #444 !important;
-            font-weight: 600;
-        }
+    // Load saved wishes
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedWishes = JSON.parse(localStorage.getItem('wishes')) || [];
+        savedWishes.forEach((wish, index) => addWishCard(wish, index));
+    });
 
-        @media (max-width: 768px) {
-            #messages h2 {
-                font-size: 2.2rem;
-            }
-        }
-    </style>
+    // Submit new wish
+    submitWish.onclick = () => {
+        const name = document.getElementById('wishName').value.trim();
+        const message = document.getElementById('wishMessage').value.trim();
 
-    <script>
-        const modal = document.getElementById('wishModal');
-        const openForm = document.getElementById('openForm');
-        const closeForm = document.getElementById('closeForm');
-        const submitWish = document.getElementById('submitWish');
-        const messageContainer = document.getElementById('messageContainer');
-        const ADMIN_PIN = "DH-051225";
-
-        openForm.onclick = () => modal.style.display = 'flex';
-        closeForm.onclick = () => modal.style.display = 'none';
-
-        const userID = localStorage.getItem('wishUserID') || Date.now().toString();
-        localStorage.setItem('wishUserID', userID);
-
-        // Load saved wishes
-        document.addEventListener('DOMContentLoaded', () => {
+        if (name && message) {
+            const wish = { name, message, owner: userID };
             const savedWishes = JSON.parse(localStorage.getItem('wishes')) || [];
-            savedWishes.forEach((wish, index) => addWishCard(wish, index));
-        });
+            savedWishes.push(wish);
+            localStorage.setItem('wishes', JSON.stringify(savedWishes));
+            addWishCard(wish, savedWishes.length - 1);
 
-        // Submit new wish
-        submitWish.onclick = () => {
-            const name = document.getElementById('wishName').value.trim();
-            const message = document.getElementById('wishMessage').value.trim();
+            document.getElementById('wishName').value = '';
+            document.getElementById('wishMessage').value = '';
+            modal.style.display = 'none';
+        } else {
+            alert('Please fill in both fields 💌');
+        }
+    };
 
-            if (name && message) {
-                const wish = { name, message, owner: userID };
-                const savedWishes = JSON.parse(localStorage.getItem('wishes')) || [];
-                savedWishes.push(wish);
-                localStorage.setItem('wishes', JSON.stringify(savedWishes));
-                addWishCard(wish, savedWishes.length - 1);
-
-                document.getElementById('wishName').value = '';
-                document.getElementById('wishMessage').value = '';
-                modal.style.display = 'none';
-            } else {
-                alert('Please fill in both fields 💌');
-            }
-        };
-
-        // Add wish card
-        function addWishCard(wish, index) {
-            const col = document.createElement('div');
-            col.className = 'col-md-4';
-            const canDelete = wish.owner === userID;
-            col.innerHTML = `
+    // Add wish card
+    function addWishCard(wish, index) {
+        const col = document.createElement('div');
+        col.className = 'col-md-4';
+        const canDelete = wish.owner === userID;
+        col.innerHTML = `
       <div class="card shadow-lg border-0 p-4 mt-4 position-relative" style="background-color: #fff; border-radius: 20px;">
         <span class="delete-btn" onclick="requestDelete(${index})">&times;</span>
         <p class="text-muted" style="font-style: italic;">“${wish.message}”</p>
         <h6 class="mt-3 mb-0" style="color:#444;">— ${wish.name}</h6>
       </div>`;
-            const btn = col.querySelector('.delete-btn');
-            if (!canDelete) btn.style.display = 'none'; // hide delete if not owner
-            messageContainer.appendChild(col);
+        const btn = col.querySelector('.delete-btn');
+        if (!canDelete) btn.style.display = 'none'; // hide delete if not owner
+        messageContainer.appendChild(col);
+    }
+
+    // Delete wish (owner or admin)
+    function requestDelete(index) {
+        const savedWishes = JSON.parse(localStorage.getItem('wishes')) || [];
+        const wish = savedWishes[index];
+        if (wish.owner === userID) {
+            performDelete(index);
+        } else {
+            const enteredPIN = prompt('Enter Admin PIN to delete this wish:');
+            if (enteredPIN === ADMIN_PIN) performDelete(index);
+            else if (enteredPIN !== null) alert('Incorrect PIN ❌');
         }
+    }
 
-        // Delete wish (owner or admin)
-        function requestDelete(index) {
-            const savedWishes = JSON.parse(localStorage.getItem('wishes')) || [];
-            const wish = savedWishes[index];
-            if (wish.owner === userID) {
-                performDelete(index);
-            } else {
-                const enteredPIN = prompt('Enter Admin PIN to delete this wish:');
-                if (enteredPIN === ADMIN_PIN) performDelete(index);
-                else if (enteredPIN !== null) alert('Incorrect PIN ❌');
-            }
-        }
-
-        function performDelete(index) {
-            const savedWishes = JSON.parse(localStorage.getItem('wishes')) || [];
-            savedWishes.splice(index, 1);
-            localStorage.setItem('wishes', JSON.stringify(savedWishes));
-            messageContainer.innerHTML = '';
-            savedWishes.forEach((wish, i) => addWishCard(wish, i));
-            alert('Wish deleted 💔');
-        }
-    </script>
+    function performDelete(index) {
+        const savedWishes = JSON.parse(localStorage.getItem('wishes')) || [];
+        savedWishes.splice(index, 1);
+        localStorage.setItem('wishes', JSON.stringify(savedWishes));
+        messageContainer.innerHTML = '';
+        savedWishes.forEach((wish, i) => addWishCard(wish, i));
+        alert('Wish deleted 💔');
+    }
+</script>
 
 
 
-    <!-- Footer Start (Blush-Pink Wedding Theme) -->
-    <footer class="site-footer" id="contact" style="margin-top:90px;">
-        <div class="container text-center py-5">
-            <div class="section-title position-relative text-center mb-3">
-                <h1 class="font-secondary display-3 text-white mb-0" style="font-size:2.75rem;">Thank You</h1>
-                <i class="far fa-heart" style="color:#f1c7cc; font-size:22px; position:relative; top:6px;"></i>
-            </div>
-
-            <p class="lead mb-4" style="color:#f6e6e8; max-width:720px; margin:0 auto;">
-                Your love, blessings and presence make our day truly special. We can’t wait to celebrate with you.
-            </p>
-
-            <!-- Social Icons -->
-            <div class="d-flex justify-content-center mb-4" style="gap:12px;">
-                <a class="social-btn" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a class="social-btn" href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a class="social-btn" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a class="social-btn" href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            </div>
-
-            <!-- Contact Info -->
-            <div class="d-flex justify-content-center align-items-center flex-column flex-md-row text-white mb-3"
-                style="gap:10px;">
-                <a href="mailto:info@example.com" style="color:#ffeef0; text-decoration:none;">📧 info@example.com</a>
-                <span style="color:#ffdfe3;">|</span>
-                <a href="tel:+910123456789" style="color:#ffeef0; text-decoration:none;">📞 +91 01234 56789</a>
-            </div>
-
-            <p class="m-0 small" style="color:#f0dfe1;">
-                &copy; <span style="color:#b56576;">Dhrumil &amp; Hiral</span>. Designed by
-                <a href="https://htmlcodex.com" target="_blank" rel="noopener"
-                    style="color:#f9c5d1; text-decoration:none;">Nihar Shah</a>
-            </p>
+<!-- Footer Start (Blush-Pink Wedding Theme) -->
+<footer class="site-footer" id="contact" style="margin-top:90px;">
+    <div class="container text-center py-5">
+        <div class="section-title position-relative text-center mb-3">
+            <h1 class="font-secondary display-3 text-white mb-0" style="font-size:2.75rem;">Thank You</h1>
+            <i class="far fa-heart" style="color:#f1c7cc; font-size:22px; position:relative; top:6px;"></i>
         </div>
-    </footer>
-    <!-- Footer End -->
 
-    <!-- Scroll to Bottom (small down chevron) -->
-    <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom" aria-hidden="true"
-        style="position:fixed; left:50%; transform:translateX(-50%); bottom:120px; z-index:80; display:none;"></i>
+        <p class="lead mb-4" style="color:#f6e6e8; max-width:720px; margin:0 auto;">
+            Your love, blessings and presence make our day truly special. We can’t wait to celebrate with you.
+        </p>
 
-    <!-- Back to Top -->
-    <a href="#" class="btn back-to-top" aria-label="Back to top" style="display:none;">
-        <i class="fa fa-angle-double-up"></i>
-    </a>
+        <!-- Social Icons -->
+        <div class="d-flex justify-content-center mb-4" style="gap:12px;">
+            <a class="social-btn" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a class="social-btn" href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a class="social-btn" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a class="social-btn" href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
 
-    <!-- Footer Styles (add to your css file or inside a <style> block) -->
-    <style>
-        /* Footer background and general */
-        .site-footer {
-            background: linear-gradient(180deg, #2b2024 0%, #22181b 100%);
-            /* dark but warm */
-            color: #fff;
-            padding-top: 60px;
-            padding-bottom: 40px;
+        <!-- Contact Info -->
+        <div class="d-flex justify-content-center align-items-center flex-column flex-md-row text-white mb-3"
+            style="gap:10px;">
+            <a href="mailto:info@example.com" style="color:#ffeef0; text-decoration:none;">📧 info@example.com</a>
+            <span style="color:#ffdfe3;">|</span>
+            <a href="tel:+910123456789" style="color:#ffeef0; text-decoration:none;">📞 +91 01234 56789</a>
+        </div>
+
+        <p class="m-0 small" style="color:#f0dfe1;">
+            &copy; <span style="color:#b56576;">Dhrumil &amp; Hiral</span>. Designed by
+            <a href="https://htmlcodex.com" target="_blank" rel="noopener"
+                style="color:#f9c5d1; text-decoration:none;">Nihar Shah</a>
+        </p>
+    </div>
+</footer>
+<!-- Footer End -->
+
+<!-- Scroll to Bottom (small down chevron) -->
+<i class="fa fa-2x fa-angle-down text-white scroll-to-bottom" aria-hidden="true"
+    style="position:fixed; left:50%; transform:translateX(-50%); bottom:120px; z-index:80; display:none;"></i>
+
+<!-- Back to Top -->
+<a href="#" class="btn back-to-top" aria-label="Back to top" style="display:none;">
+    <i class="fa fa-angle-double-up"></i>
+</a>
+
+<!-- Footer Styles (add to your css file or inside a <style> block) -->
+<style>
+    /* Footer background and general */
+    .site-footer {
+        background: linear-gradient(180deg, #2b2024 0%, #22181b 100%);
+        /* dark but warm */
+        color: #fff;
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+
+    /* Section title adjustments to match site fonts */
+    .site-footer .font-secondary {
+        font-family: "Great Vibes", cursive;
+        color: #fff;
+        letter-spacing: .5px;
+    }
+
+    /* Social buttons (blush theme) */
+    .social-btn {
+        width: 48px;
+        height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        background: rgba(249, 197, 209, 0.08);
+        color: #f9c5d1;
+        border: 1px solid rgba(249, 197, 209, 0.18);
+        transition: all 0.25s ease;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+    .social-btn:hover {
+        background: linear-gradient(90deg, rgba(249, 197, 209, 0.14), rgba(183, 110, 121, 0.12));
+        color: #fff;
+        transform: translateY(-4px);
+        box-shadow: 0 6px 18px rgba(183, 110, 121, 0.15);
+    }
+
+    /* Contact link colors */
+    .site-footer a[href^="mailto:"],
+    .site-footer a[href^="tel:"] {
+        font-weight: 600;
+        transition: color .2s;
+    }
+
+    .site-footer a[href^="mailto:" i],
+    .site-footer a[href^="tel:" i] {
+        color: #ffeef0;
+    }
+
+    .site-footer a[href^="mailto:" i]:hover,
+    .site-footer a[href^="tel:" i]:hover {
+        color: #f9c5d1;
+        text-decoration: none;
+    }
+
+    /* Small responsive tweaks */
+    @media (max-width: 767px) {
+        .site-footer .display-3 {
+            font-size: 2rem;
         }
 
-        /* Section title adjustments to match site fonts */
-        .site-footer .font-secondary {
-            font-family: "Great Vibes", cursive;
-            color: #fff;
-            letter-spacing: .5px;
-        }
-
-        /* Social buttons (blush theme) */
         .social-btn {
-            width: 48px;
-            height: 48px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            background: rgba(249, 197, 209, 0.08);
-            color: #f9c5d1;
-            border: 1px solid rgba(249, 197, 209, 0.18);
-            transition: all 0.25s ease;
-            text-decoration: none;
-            font-size: 18px;
+            width: 44px;
+            height: 44px;
+            font-size: 16px;
         }
+    }
 
-        .social-btn:hover {
-            background: linear-gradient(90deg, rgba(249, 197, 209, 0.14), rgba(183, 110, 121, 0.12));
-            color: #fff;
-            transform: translateY(-4px);
-            box-shadow: 0 6px 18px rgba(183, 110, 121, 0.15);
-        }
+    /* Back to top button styling */
+    .back-to-top {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        z-index: 99;
+        width: 52px;
+        height: 52px;
+        border-radius: 12px;
+        background: rgba(249, 197, 209, 0.12);
+        color: #f9c5d1;
+        border: 1px solid rgba(249, 197, 209, 0.18);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.25s ease;
+        text-decoration: none;
+    }
 
-        /* Contact link colors */
-        .site-footer a[href^="mailto:"],
-        .site-footer a[href^="tel:"] {
-            font-weight: 600;
-            transition: color .2s;
-        }
+    .back-to-top:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(183, 110, 121, 0.12);
+        color: #fff;
+        background: linear-gradient(90deg, #f9c5d1, #b56576);
+    }
 
-        .site-footer a[href^="mailto:" i],
-        .site-footer a[href^="tel:" i] {
-            color: #ffeef0;
-        }
+    /* show/hide handled by JS below */
+</style>
 
-        .site-footer a[href^="mailto:" i]:hover,
-        .site-footer a[href^="tel:" i]:hover {
-            color: #f9c5d1;
-            text-decoration: none;
-        }
+<!-- Small JS to show back-to-top and scroll-to-bottom controls (add at bottom of body) -->
+<script>
+    (function () {
+        const backBtn = document.querySelector('.back-to-top');
+        const downBtn = document.querySelector('.scroll-to-bottom');
 
-        /* Small responsive tweaks */
-        @media (max-width: 767px) {
-            .site-footer .display-3 {
-                font-size: 2rem;
-            }
+        // show/hide controls on scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) backBtn.style.display = 'flex';
+            else backBtn.style.display = 'none';
 
-            .social-btn {
-                width: 44px;
-                height: 44px;
-                font-size: 16px;
-            }
-        }
+            // show down button only at top
+            if (window.scrollY < 80) downBtn.style.display = 'block';
+            else downBtn.style.display = 'none';
+        });
 
-        /* Back to top button styling */
-        .back-to-top {
-            position: fixed;
-            right: 18px;
-            bottom: 18px;
-            z-index: 99;
-            width: 52px;
-            height: 52px;
-            border-radius: 12px;
-            background: rgba(249, 197, 209, 0.12);
-            color: #f9c5d1;
-            border: 1px solid rgba(249, 197, 209, 0.18);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.25s ease;
-            text-decoration: none;
-        }
+        // smooth scroll to top
+        backBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
-        .back-to-top:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(183, 110, 121, 0.12);
-            color: #fff;
-            background: linear-gradient(90deg, #f9c5d1, #b56576);
-        }
-
-        /* show/hide handled by JS below */
-    </style>
-
-    <!-- Small JS to show back-to-top and scroll-to-bottom controls (add at bottom of body) -->
-    <script>
-        (function () {
-            const backBtn = document.querySelector('.back-to-top');
-            const downBtn = document.querySelector('.scroll-to-bottom');
-
-            // show/hide controls on scroll
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 400) backBtn.style.display = 'flex';
-                else backBtn.style.display = 'none';
-
-                // show down button only at top
-                if (window.scrollY < 80) downBtn.style.display = 'block';
-                else downBtn.style.display = 'none';
-            });
-
-            // smooth scroll to top
-            backBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-
-            // smooth scroll to next section (approx)
-            downBtn.addEventListener('click', () => {
-                window.scrollTo({ top: window.innerHeight * 0.9, behavior: 'smooth' });
-            });
-        })();
-    </script>
+        // smooth scroll to next section (approx)
+        downBtn.addEventListener('click', () => {
+            window.scrollTo({ top: window.innerHeight * 0.9, behavior: 'smooth' });
+        });
+    })();
+</script>
 
 
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/isotope/isotope.pkgd.min.js"></script>
+<script src="lib/lightbox/js/lightbox.min.js"></script>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-
+<!-- Template Javascript -->
+<script src="js/main.js"></script>
+<script src="js/gallery.js"></script>
 </body>
 
 </html>
