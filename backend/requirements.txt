@@ -3,3 +3,4 @@ flask-cors
 werkzeug
 cloudinary  
 python-dotenv 
+gunicorn
