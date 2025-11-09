@@ -38,12 +38,25 @@ def upload_file():
 
     if file:
         try:
-            # Upload the file directly to Cloudinary
-            # It will be stored in a folder named 'wedding-gallery'
+            # --- START OF CHANGES ---
+
+            # 1. Get the event tag from the form data (sent by gallery.js)
+            # We default to 'other' if no tag is sent
+            event_tag_raw = request.form.get("event", "other")
+            
+            # 2. Sanitize the tag to prevent bad folder names
+            event_tag = "".join(c for c in event_tag_raw if c.isalnum() or c in ('-'))
+
+            # 3. Create a dynamic folder name, e.g., "wedding-gallery/haldi"
+            folder_name = f"wedding-gallery/{event_tag}"
+
+            # 4. Upload the file directly to the event-specific folder
             upload_result = cloudinary.uploader.upload(
                 file,
-                folder="wedding-gallery"
+                folder=folder_name
             )
+            
+            # --- END OF CHANGES ---
             
             # Send back the new secure URL
             return jsonify({

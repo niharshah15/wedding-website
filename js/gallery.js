@@ -19,6 +19,11 @@ if (uploadForm) {
 
     const formData = new FormData();
     formData.append("image", fileInput.files[0]);
+    
+    // Get the event 'tag' from the URL (e.g., ?event=haldi)
+    const params = new URLSearchParams(window.location.search);
+    const eventTag = params.get('event') || 'other'; // Defaults to 'other' if no tag
+    formData.append("event", eventTag);
 
     // New polite message
     statusText.innerHTML = "Uploading... 💖<br><small>Our gallery might be waking up! This can take up to 30 seconds for the first photo. Please wait...</small>";
