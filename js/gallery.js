@@ -4,6 +4,10 @@ const backendURL = "https://wedding-website-ib81.onrender.com";
 const uploadForm = document.getElementById("uploadForm");
 const statusText = document.getElementById("status");
 const photosDiv = document.getElementById("photos");
+const loadMoreBtn = document.getElementById("loadMoreBtn"); // Get the new button
+
+// This variable will keep track of the "next page"
+let nextCursor = null;
 
 // Add event listener to the form
 if (uploadForm) {
@@ -46,7 +50,8 @@ if (uploadForm) {
       statusText.style.color = "green";
 
       // Add the new photo to the top of the gallery
-      addPhotoToGallery(data.url);
+      // We use .prepend() to add the *new* upload to the top of the list
+      addPhotoToGallery(data.url, true);
 
       // Clear the file input
       uploadForm.reset();
@@ -60,7 +65,8 @@ if (uploadForm) {
 }
 
 // Function to add a single photo to the gallery
-function addPhotoToGallery(imageUrl) {
+// We add a 'prepend' flag to control where the image is added
+function addPhotoToGallery(imageUrl, prepend = false) {
   // This is the container for all guest photos
   const guestGalleryContainer = document.getElementById("photos");
   if (!guestGalleryContainer) return; // Exit if the container isn't on the page
@@ -84,22 +90,56 @@ function addPhotoToGallery(imageUrl) {
   img.onmouseout = () => { img.style.transform = "scale(1)"; };
 
   imgLink.appendChild(img);
-  // prepend() adds the new image at the *beginning* of the gallery
-  guestGalleryContainer.prepend(imgLink);
+
+  if (prepend) {
+    // Add new uploads to the beginning
+    guestGalleryContainer.prepend(imgLink);
+  } else {
+    // Add 'Load More' photos to the end
+    guestGalleryContainer.appendChild(imgLink);
+  }
 }
 
-// Load all existing photos when the page loads
-async function loadGallery() {
+// --- NEW "LOAD MORE" LOGIC ---
+
+// This new function fetches a "page" of photos
+async function fetchPhotos() {
   if (!photosDiv) return; // Don't run if the photosDiv element doesn't exist
 
-  try {
-    const res = await fetch(`${backendURL}/photos`);
-    const imageUrls = await res.json(); // This will be an array of full URLs
+  // Build the URL. If we have a cursor, add it.
+  let url = `${backendURL}/photos`;
+  if (nextCursor) {
+    url += `?next_cursor=${nextCursor}`;
+  }
 
-    photosDiv.innerHTML = ""; // Clear any placeholders
-    imageUrls.forEach(url => {
-      addPhotoToGallery(url); // Add each photo to the page
+  // Show loading text on the button
+  if (loadMoreBtn) {
+    loadMoreBtn.textContent = "Loading...";
+    loadMoreBtn.disabled = true;
+  }
+
+  try {
+    const res = await fetch(url);
+    const data = await res.json(); // This will be an object: {photos: [], next_cursor: "..."}
+
+    data.photos.forEach(url => {
+      addPhotoToGallery(url, false); // Add each photo to the end of the page
     });
+
+    // Update the nextCursor for the *next* time the button is clicked
+    nextCursor = data.next_cursor;
+
+    // If there is a next_cursor, show the "Load More" button
+    // If not (it's null), we are at the end, so hide the button
+    if (nextCursor) {
+      loadMoreBtn.style.display = "inline-block";
+      loadMoreBtn.textContent = "Load More Photos...";
+      loadMoreBtn.disabled = false;
+    } else {
+      if (loadMoreBtn) {
+          loadMoreBtn.style.display = "none";
+      }
+    }
 
   } catch (err) {
     console.error("Error loading gallery:", err);
@@ -107,5 +147,10 @@ async function loadGallery() {
   }
 }
 
-// Run loadGallery when the window loads
-window.onload = loadGallery;
+// When the "Load More" button is clicked, fetch more photos
+if (loadMoreBtn) {
+    loadMoreBtn.addEventListener("click", fetchPhotos);
+}
+
+// Run this ONCE when the page first loads
+window.onload = fetchPhotos;

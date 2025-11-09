@@ -70,20 +70,31 @@ def upload_file():
 @app.route("/photos", methods=["GET"])
 def list_photos():
     try:
-        # Ask Cloudinary for all images with the "wedding-gallery" tag
-        # (Cloudinary automatically adds a tag based on the folder name)
+        # Get the 'next_cursor' from the query (e.g., /photos?next_cursor=abcde)
+        # This tells Cloudinary which 'page' of results to get
+        next_cursor = request.args.get('next_cursor', None)
+
         resources = cloudinary.api.resources(
             type="upload",
             prefix="wedding-gallery",  # Get only files from our folder
-            max_results=100            # Get up to 100 images
+            max_results=30,            # <-- We will load only 30 at a time
+            next_cursor=next_cursor,   # <-- Start from this 'page'
+            sort_by=[("created_at", "desc")] # <-- Get newest photos first
         )
-        
+
         # Extract the secure URLs from the response
         photo_urls = [res["secure_url"] for res in resources["resources"]]
-        photo_urls.reverse() # Show newest first
-        
-        return jsonify(photo_urls)
-        
+
+        # Get the cursor for the *next* page. 
+        # It will be 'None' if there are no more photos.
+        next_page_cursor = resources.get("next_cursor")
+
+        # Send back BOTH the photos AND the cursor for the next page
+        return jsonify({
+            "photos": photo_urls,
+            "next_cursor": next_page_cursor
+        })
+
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
