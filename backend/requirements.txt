@@ -4,3 +4,4 @@ werkzeug
 cloudinary  
 python-dotenv 
 gunicorn
+Pillow

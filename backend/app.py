@@ -1,3 +1,5 @@
+import io
+from PIL import Image
 import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -38,34 +40,59 @@ def upload_file():
 
     if file:
         try:
-            # --- START OF CHANGES ---
+            # --- START OF RESIZE CHANGES ---
 
-            # 1. Get the event tag from the form data (sent by gallery.js)
-            # We default to 'other' if no tag is sent
+            # 1. Read the uploaded file into an in-memory buffer
+            in_memory_file = io.BytesIO()
+            file.save(in_memory_file)
+            in_memory_file.seek(0)
+
+            # 2. Open the image using Pillow
+            img = Image.open(in_memory_file)
+
+            # 3. Handle images with transparency (like PNGs)
+            if img.mode in ("RGBA", "LA"):
+                # Create a white background
+                background = Image.new("RGB", img.size, (255, 255, 255))
+                # Paste the image onto the background, using its alpha channel as a mask
+                background.paste(img, (0, 0), img)
+                img = background
+
+            # 4. Resize the image.
+            # .thumbnail() keeps the aspect ratio.
+            # We set a max width/height of 1920px.
+            img.thumbnail((1920, 1920), Image.Resampling.LANCZOS)
+
+            # 5. Create a *new* in-memory buffer to save the resized image
+            resized_in_memory_file = io.BytesIO()
+
+            # 6. Save the resized image to the buffer as a high-quality JPEG
+            img.save(resized_in_memory_file, format='JPEG', quality=90)
+            resized_in_memory_file.seek(0)
+
+            # --- END OF RESIZE CHANGES ---
+
+            # Get the event tag from the form data
             event_tag_raw = request.form.get("event", "other")
-            
-            # 2. Sanitize the tag to prevent bad folder names
             event_tag = "".join(c for c in event_tag_raw if c.isalnum() or c in ('-'))
-
-            # 3. Create a dynamic folder name, e.g., "wedding-gallery/haldi"
             folder_name = f"wedding-gallery/{event_tag}"
 
-            # 4. Upload the file directly to the event-specific folder
+            # 7. Upload the RESIZED file (from memory) to Cloudinary
             upload_result = cloudinary.uploader.upload(
-                file,
-                folder=folder_name
+                resized_in_memory_file,  # <-- We are uploading the resized file now
+                folder=folder_name,
+                resource_type="image"
             )
-            
-            # --- END OF CHANGES ---
-            
-            # Send back the new secure URL
+
             return jsonify({
                 "message": "Upload successful", 
                 "url": upload_result["secure_url"]
             })
-            
+
         except Exception as e:
-            return jsonify({"error": str(e)}), 500
+            # Log the error to Render so you can see what went wrong
+            print(f"Error during upload: {str(e)}")
+            return jsonify({"error": f"An error occurred: {str(e)}"}), 500
 
 @app.route("/photos", methods=["GET"])
 def list_photos():
