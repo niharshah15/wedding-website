@@ -104,7 +104,7 @@ def list_photos():
         resources = cloudinary.api.resources(
             type="upload",
             prefix="wedding-gallery",  # Get only files from our folder
-            max_results=30,            # <-- We will load only 30 at a time
+            max_results=10,            # <-- We will load only 10 at a time
             next_cursor=next_cursor,   # <-- Start from this 'page'
             sort_by=[("created_at", "desc")] # <-- Get newest photos first
         )

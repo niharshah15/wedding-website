@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Upload</title>
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        body { text-align: center; padding: 50px 20px; background: #fff0f3; }
+        .upload-box { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        button { background: #b56576; color: white; border: none; padding: 15px 30px; font-size: 18px; border-radius: 50px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="upload-box">
+        <h1 style="color: #b56576;">Backup Upload</h1>
+        <p>If the main site is slow, use this to save your photos!</p>
+        
+        <input type="file" id="fileInput" accept="image/*" style="display: block; margin: 20px auto;">
+        <button onclick="uploadImage()">Upload Now</button>
+        <p id="status" style="margin-top: 20px; font-weight: bold;"></p>
+    </div>
+
+    <script>
+        const CLOUD_NAME = "djnsb7djw"; 
+        const PRESET_NAME = "wedding_unsigned";
+
+        async function uploadImage() {
+            const file = document.getElementById('fileInput').files[0];
+            const status = document.getElementById('status');
+            if (!file) return alert("Please select a file!");
+
+            status.innerText = "Uploading directly to cloud...";
+            
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('upload_preset', PRESET_NAME);
+
+            try {
+                const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await res.json();
+                if (data.error) throw new Error(data.error.message);
+                
+                status.innerText = "✅ Saved! Thank you.";
+                status.style.color = "green";
+            } catch (err) {
+                status.innerText = "❌ Error: " + err.message;
+                status.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
