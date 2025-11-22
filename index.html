@@ -435,30 +435,51 @@
         <div class="container py-5">
             <div class="section-title position-relative text-center mb-5">
                 <h6 class="text-uppercase mb-3" style="letter-spacing: 3px; color: #d291bc;">Share a Memory</h6>
-                <h1 class="font-secondary display-4" style="color: #b56576;">Upload Your Happy Moments</h1>
+                <h1 class="font-secondary display-4" style="color: #b56576;">Upload Your Photo</h1>
                 <i class="far fa-heart" style="color: #d291bc; font-size: 24px;"></i>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-md-8 text-center">
-                    <p class="mb-4" style="color: #6c757d;">Share your favorite moments from our events! Upload a photo
-                        for us all to see.</p>
 
-                    <form id="uploadForm" class="mb-4">
-                        <div class="form-group">
-                            <input type="file" id="image" name="image" accept="image/*" class="form-control" required>
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6 text-center">
+                    <p class="mb-4 text-muted">Share your favorite moments from our events! Upload a photo for us all to
+                        see.</p>
+
+                    <form id="uploadForm" class="mb-4 p-4 shadow-sm" style="background: white; border-radius: 20px;">
+
+                        <div class="form-group text-left">
+                            <label for="eventSelect" class="text-muted font-weight-bold small ml-2">Select
+                                Event:</label>
+                            <div class="position-relative">
+                                <select id="eventSelect" class="form-control custom-wedding-input" required>
+                                    <option value="haldi">💛 Haldi Ceremony</option>
+                                    <option value="wedding" selected>💍 Wedding</option>
+                                    <option value="reception">🎉 Reception</option>
+                                    <option value="other">📸 Other Moments</option>
+                                </select>
+                                <i class="fa fa-chevron-down position-absolute"
+                                    style="right: 20px; top: 18px; color: #b56576; pointer-events: none;"></i>
+                            </div>
                         </div>
-                        <button type_submit" class="btn btn-primary"
-                            style="background-color: #b56576; border-color: #b56576; padding: 10px 20px;">Upload
-                            Photo</button>
+
+                        <div class="form-group text-left">
+                            <label for="image" class="text-muted font-weight-bold small ml-2">Choose Photo:</label>
+                            <input type="file" id="image" name="image" accept="image/*"
+                                class="form-control custom-wedding-input" style="padding-top: 10px;" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block py-3 mt-4 font-weight-bold shadow-sm"
+                            style="background: linear-gradient(90deg, #b56576, #e56b6f); border: none; border-radius: 50px; transition: all 0.3s;">
+                            <i class="fa fa-cloud-upload-alt mr-2"></i> Upload Photo
+                        </button>
                     </form>
 
-                    <p id="status" class="font-weight-bold"></p>
+                    <p id="status" class="font-weight-bold mt-3"></p>
 
                     <div id="photos" class="mt-4"
-                        style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
-                    </div>
-                    <button id="loadMoreBtn" class="btn btn-primary"
-                        style="background-color: #b56576; border-color: #b56576; padding: 10px 20px; margin-top: 20px; display: none;">
+                        style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;"></div>
+
+                    <button id="loadMoreBtn" class="btn btn-outline-primary rounded-pill px-4 py-2 mt-3"
+                        style="border-color: #b56576; color: #b56576; display: none;">
                         Load More Photos...
                     </button>
                 </div>
@@ -466,6 +487,44 @@
         </div>
     </div>
 
+    <style>
+        /* Custom Styling for Inputs */
+        .custom-wedding-input {
+            height: 50px;
+            border-radius: 25px;
+            border: 2px solid #ffe5ec;
+            background-color: #fffbfb;
+            font-size: 1rem;
+            color: #555;
+            padding-left: 20px;
+            appearance: none;
+            /* Removes default ugly browser arrow */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            box-shadow: none;
+            transition: all 0.3s ease;
+        }
+
+        /* Focus State (When user clicks) */
+        .custom-wedding-input:focus {
+            border-color: #b56576;
+            box-shadow: 0 0 10px rgba(181, 101, 118, 0.2);
+            background-color: #fff;
+            outline: none;
+        }
+
+        /* Hover Effect */
+        .custom-wedding-input:hover {
+            border-color: #ffcad4;
+        }
+
+        /* Button Hover Effect */
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(181, 101, 118, 0.4);
+        }
+    </style>
+    
     <!-- Event Start -->
     <div class="container-fluid py-5 bg-blush-pink" id="event">
         <div class="container py-5">
@@ -789,10 +848,10 @@
                 <a href="tel:+910123456789" style="color:#ffeef0; text-decoration:none;">📞 +91 01234 56789</a>
             </div>
 
-            <p class="m-0 small" style="color:#f0dfe1;">
+            <!-- <p class="m-0 small" style="color:#f0dfe1;">
                 &copy; <span style="color:#b56576;">Dhrumil &amp; Hiral</span>. Designed by
                 <a href="" target="_blank" rel="noopener" style="color:#f9c5d1; text-decoration:none;">Nihar Shah</a>
-            </p>
+            </p> -->
         </div>
     </footer>
     <!-- Footer End -->

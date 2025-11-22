@@ -23,11 +23,11 @@ if (uploadForm) {
 
     const formData = new FormData();
     formData.append("image", fileInput.files[0]);
-    
-    // Get the event 'tag' from the URL (e.g., ?event=haldi)
-    const params = new URLSearchParams(window.location.search);
-    const eventTag = params.get('event') || 'other'; // Defaults to 'other' if no tag
-    formData.append("event", eventTag);
+
+    // Get the selected event from the dropdown
+    const eventSelect = document.getElementById('eventSelect');
+    const eventTag = eventSelect.value;
+    formData.append("event", eventTag);;
 
     // New polite message
     statusText.innerHTML = "Uploading... 💖<br><small>Our gallery might be waking up! This can take up to 30 seconds for the first photo. Please wait...</small>";
@@ -137,7 +137,7 @@ async function fetchPhotos() {
       loadMoreBtn.disabled = false;
     } else {
       if (loadMoreBtn) {
-          loadMoreBtn.style.display = "none";
+        loadMoreBtn.style.display = "none";
       }
     }
 
@@ -149,7 +149,7 @@ async function fetchPhotos() {
 
 // When the "Load More" button is clicked, fetch more photos
 if (loadMoreBtn) {
-    loadMoreBtn.addEventListener("click", fetchPhotos);
+  loadMoreBtn.addEventListener("click", fetchPhotos);
 }
 
 // Run this ONCE when the page first loads
