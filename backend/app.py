@@ -1,6 +1,6 @@
 import io
-from PIL import Image
 import os
+from PIL import Image
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
@@ -9,12 +9,27 @@ import cloudinary.uploader
 import cloudinary.api
 from dotenv import load_dotenv
 
-load_dotenv()  # Load secret keys from .env file
+load_dotenv()  # Load secret keys
 
 app = Flask(__name__)
-CORS(app)  # Allow your Netlify frontend
 
-# Configure Cloudinary using your secret keys
+# --- SECURITY FIX 1: CORS RESTRICTION ---
+# Only allow your specific Netlify URL to talk to this backend
+# Replace with your exact Netlify URL
+CORS(app, resources={r"/*": {"origins": ["https://dhruhidavivah.netlify.app"]}})
+
+# --- SECURITY FIX 2: MAX FILE SIZE ---
+# Reject any file larger than 10 MB immediately
+app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024 
+
+# --- SECURITY FIX 3: ALLOWED EXTENSIONS ---
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'webp', 'heic'}
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+# Configure Cloudinary
 cloudinary.config(
     cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
     api_key=os.getenv("CLOUDINARY_API_KEY"),
@@ -22,113 +37,97 @@ cloudinary.config(
     secure=True
 )
 
-# We no longer need the UPLOAD_FOLDER
-# os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-
 @app.route("/")
 def home():
-    return jsonify({"message": "Photo upload API running!"})
+    return jsonify({"message": "Secure Photo API is running!"})
 
 @app.route("/upload", methods=["POST"])
 def upload_file():
+    # Check if file part exists
     if "image" not in request.files:
         return jsonify({"error": "No image part"}), 400
 
     file = request.files["image"]
+
+    # Check if user selected a file
     if file.filename == "":
         return jsonify({"error": "No file selected"}), 400
 
+    # Check file extension
+    if not allowed_file(file.filename):
+        return jsonify({"error": "File type not allowed"}), 400
+
     if file:
         try:
-            # --- START OF RESIZE CHANGES ---
-
-            # 1. Read the uploaded file into an in-memory buffer
+            # 1. Read file to memory
             in_memory_file = io.BytesIO()
             file.save(in_memory_file)
             in_memory_file.seek(0)
+            
+            # 2. Open with Pillow (This step verifies it's a real image)
+            try:
+                img = Image.open(in_memory_file)
+            except IOError:
+                return jsonify({"error": "Invalid image file"}), 400
 
-            # 2. Open the image using Pillow
-            img = Image.open(in_memory_file)
-
-            # 3. Handle images with transparency (like PNGs)
+            # 3. Handle Transparency
             if img.mode in ("RGBA", "LA"):
-                # Create a white background
                 background = Image.new("RGB", img.size, (255, 255, 255))
-                # Paste the image onto the background, using its alpha channel as a mask
                 background.paste(img, (0, 0), img)
                 img = background
-
-            # 4. Resize the image.
-            # .thumbnail() keeps the aspect ratio.
-            # We set a max width/height of 1920px.
+            
+            # 4. Resize
             img.thumbnail((1920, 1920), Image.Resampling.LANCZOS)
 
-            # 5. Create a *new* in-memory buffer to save the resized image
+            # 5. Save resized version
             resized_in_memory_file = io.BytesIO()
-
-            # 6. Save the resized image to the buffer as a high-quality JPEG
             img.save(resized_in_memory_file, format='JPEG', quality=90)
             resized_in_memory_file.seek(0)
 
-            # --- END OF RESIZE CHANGES ---
-
-            # Get the event tag from the form data
+            # 6. Get Event Tag
             event_tag_raw = request.form.get("event", "other")
             event_tag = "".join(c for c in event_tag_raw if c.isalnum() or c in ('-'))
             folder_name = f"wedding-gallery/{event_tag}"
 
-            # 7. Upload the RESIZED file (from memory) to Cloudinary
+            # 7. Upload to Cloudinary
             upload_result = cloudinary.uploader.upload(
-                resized_in_memory_file,  # <-- We are uploading the resized file now
+                resized_in_memory_file,
                 folder=folder_name,
                 resource_type="image"
             )
-
+            
             return jsonify({
                 "message": "Upload successful", 
                 "url": upload_result["secure_url"]
             })
-
+            
         except Exception as e:
-            # Log the error to Render so you can see what went wrong
-            print(f"Error during upload: {str(e)}")
-            return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+            print(f"Error: {str(e)}")
+            return jsonify({"error": "Server error during upload"}), 500
 
 @app.route("/photos", methods=["GET"])
 def list_photos():
     try:
-        # Get the 'next_cursor' from the query (e.g., /photos?next_cursor=abcde)
-        # This tells Cloudinary which 'page' of results to get
         next_cursor = request.args.get('next_cursor', None)
 
         resources = cloudinary.api.resources(
             type="upload",
-            prefix="wedding-gallery",  # Get only files from our folder
-            max_results=10,            # <-- We will load only 10 at a time
-            next_cursor=next_cursor,   # <-- Start from this 'page'
-            sort_by=[("created_at", "desc")] # <-- Get newest photos first
+            prefix="wedding-gallery", 
+            max_results=10,            # Load 10 at a time
+            next_cursor=next_cursor,
+            sort_by=[("created_at", "desc")]
         )
-
-        # Extract the secure URLs from the response
+        
         photo_urls = [res["secure_url"] for res in resources["resources"]]
-
-        # Get the cursor for the *next* page. 
-        # It will be 'None' if there are no more photos.
         next_page_cursor = resources.get("next_cursor")
-
-        # Send back BOTH the photos AND the cursor for the next page
+        
         return jsonify({
             "photos": photo_urls,
             "next_cursor": next_page_cursor
         })
-
+        
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
-# We no longer need this route because Cloudinary hosts the images
-# @app.route("/uploads/<filename>")
-# def get_photo(filename):
-#     return send_from_directory(app.config["UPLOAD_FOLDER"], filename)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=os.getenv("PORT", 5000))
