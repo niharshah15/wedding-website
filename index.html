@@ -464,8 +464,16 @@
 
                         <div class="form-group text-left">
                             <label for="image" class="text-muted font-weight-bold small ml-2">Choose Photo:</label>
-                            <input type="file" id="image" name="image" accept="image/*"
-                                class="form-control custom-wedding-input" style="padding-top: 10px;" required>
+                            
+                            <input type="file" id="image" name="image" 
+                                   accept=".jpg, .jpeg, .png, .webp" 
+                                   class="form-control custom-wedding-input" 
+                                   style="padding-top: 10px;" required>
+                            
+                            <small class="text-muted ml-3">
+                                <i class="fa fa-info-circle mr-1"></i> Supported formats: JPG, PNG, WEBP.
+                                <br><span class="ml-4">(iPhone users: Please ensure photos are not in HEIC format)</span>
+                            </small>
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-block py-3 mt-4 font-weight-bold shadow-sm"
